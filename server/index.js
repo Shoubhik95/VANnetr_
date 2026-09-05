@@ -517,18 +517,27 @@ Provide a structured, executive Markdown response with:
 // In-Memory OTP Store: email -> { otp, expiresAt, attempts, lastSentAt }
 const otpStore = new Map();
 
-// Helper: Get Nodemailer Transporter
+// Helper: Get Nodemailer Transporter (Supports Gmail & Custom SMTP Relays like Brevo/SendGrid)
 function getMailTransporter() {
-  const emailUser = process.env.EMAIL_USER ? process.env.EMAIL_USER.trim() : '';
-  const emailPass = process.env.EMAIL_PASS ? process.env.EMAIL_PASS.replace(/\s+/g, '') : '';
+  const emailUser = (process.env.SMTP_USER || process.env.EMAIL_USER || '').trim();
+  const emailPass = (process.env.SMTP_PASS || process.env.EMAIL_PASS || '').replace(/\s+/g, '');
+  const smtpHost = (process.env.SMTP_HOST || '').trim();
+  const smtpPort = parseInt(process.env.SMTP_PORT || '465', 10);
+
+  if (smtpHost && emailUser && emailPass) {
+    return nodemailer.createTransport({
+      host: smtpHost,
+      port: smtpPort,
+      secure: smtpPort === 465,
+      auth: { user: emailUser, pass: emailPass },
+      tls: { rejectUnauthorized: false }
+    });
+  }
 
   if (emailUser && emailPass) {
     return nodemailer.createTransport({
       service: 'gmail',
-      auth: {
-        user: emailUser,
-        pass: emailPass
-      }
+      auth: { user: emailUser, pass: emailPass }
     });
   }
   return null;
