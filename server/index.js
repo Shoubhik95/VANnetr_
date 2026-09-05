@@ -586,25 +586,26 @@ app.post('/api/auth/send-otp', async (req, res) => {
   const transporter = getMailTransporter();
 
   if (transporter) {
-    // Send email asynchronously in background so client gets instant response and SMTP gets full time to deliver
-    transporter.sendMail({
-      from: `"VanNetr FRA" <${process.env.EMAIL_USER}>`,
-      to: cleanEmail,
-      subject: `[VanNetr] ${otp} is your verification code`,
-      text: `Your VanNetr FRA Officer verification code is: ${otp}\n\nThis code will expire in 5 minutes.`,
-      html: `<div style="font-family: sans-serif; padding: 24px; background: #f8fafc; border-radius: 10px; max-width: 450px; color: #0f172a; border: 1px solid #e2e8f0;">
-        <h2 style="color: #047857; margin-top: 0;">🌳 VanNetr FRA Portal</h2>
-        <p style="font-size: 14px; color: #334155;">Please use the following single-use verification code to complete officer verification:</p>
-        <div style="background: #ffffff; padding: 14px; text-align: center; border-radius: 8px; border: 1px solid #cbd5e1; margin: 16px 0;">
-          <span style="font-size: 30px; font-weight: bold; letter-spacing: 6px; color: #047857; font-family: monospace;">${otp}</span>
-        </div>
-        <p style="font-size: 12px; color: #64748b;">This code will expire in 5 minutes.</p>
-      </div>`
-    }).then(info => {
+    try {
+      const emailSender = (process.env.SMTP_USER || process.env.EMAIL_USER || 'shoubhikofficial123@gmail.com').trim();
+      const info = await transporter.sendMail({
+        from: `"VanNetr FRA" <${emailSender}>`,
+        to: cleanEmail,
+        subject: `[VanNetr] ${otp} is your verification code`,
+        text: `Your VanNetr FRA Officer verification code is: ${otp}\n\nThis code will expire in 5 minutes.`,
+        html: `<div style="font-family: sans-serif; padding: 24px; background: #f8fafc; border-radius: 10px; max-width: 450px; color: #0f172a; border: 1px solid #e2e8f0;">
+          <h2 style="color: #047857; margin-top: 0;">🌳 VanNetr FRA Portal</h2>
+          <p style="font-size: 14px; color: #334155;">Please use the following single-use verification code to complete officer verification:</p>
+          <div style="background: #ffffff; padding: 14px; text-align: center; border-radius: 8px; border: 1px solid #cbd5e1; margin: 16px 0;">
+            <span style="font-size: 30px; font-weight: bold; letter-spacing: 6px; color: #047857; font-family: monospace;">${otp}</span>
+          </div>
+          <p style="font-size: 12px; color: #64748b;">This code will expire in 5 minutes.</p>
+        </div>`
+      });
       console.log(`✅ Email OTP successfully delivered to ${cleanEmail}. Response: ${info.response}`);
-    }).catch(mailErr => {
+    } catch (mailErr) {
       console.error(`⚠️ SMTP Email delivery warning:`, mailErr.message);
-    });
+    }
   }
 
   res.json({
