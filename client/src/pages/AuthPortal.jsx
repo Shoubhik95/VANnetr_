@@ -36,11 +36,21 @@ export default function AuthPortal({ initialMode = 'login' }) {
   const location = useLocation();
   const { loginWithEmail, signupWithFirebase, loginWithGoogle, isAuthenticated } = useAuth();
 
-  // Redirect to dashboard if already authenticated
+  // Redirect to dashboard if already authenticated (or via Supabase Magic Link click)
   useEffect(() => {
     if (isAuthenticated) {
       const from = location.state?.from?.pathname || '/dashboard';
       navigate(from, { replace: true });
+    }
+
+    if (supabase) {
+      const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+        if (event === 'SIGNED_IN' && session) {
+          showAlert('success', 'Email verified successfully! Logging into VanNetr Portal...');
+          setTimeout(() => navigate('/dashboard'), 800);
+        }
+      });
+      return () => subscription.unsubscribe();
     }
   }, [isAuthenticated, navigate, location]);
 
