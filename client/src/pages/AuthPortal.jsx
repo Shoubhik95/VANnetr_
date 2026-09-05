@@ -258,8 +258,9 @@ export default function AuthPortal({ initialMode = 'login' }) {
           showAlert('error', error.message || 'Invalid Supabase OTP code');
           setOtp('');
         } else {
+          if (loginDirectly) await loginDirectly(officialEmail, fullName, officerId);
           showAlert('success', 'Email verified successfully! Launching VanNetr Portal...');
-          setTimeout(() => navigate('/dashboard'), 600);
+          setTimeout(() => navigate('/dashboard'), 300);
         }
         return;
       }
@@ -273,8 +274,9 @@ export default function AuthPortal({ initialMode = 'login' }) {
       setLoading(false);
 
       if (data.success) {
+        if (loginDirectly) await loginDirectly(officialEmail, fullName, officerId);
         showAlert('success', 'Email verified successfully! Launching VanNetr Portal...');
-        setTimeout(() => navigate('/dashboard'), 600);
+        setTimeout(() => navigate('/dashboard'), 300);
       } else {
         showAlert('error', data.message || 'Invalid OTP verification code');
         setOtp('');

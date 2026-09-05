@@ -12,6 +12,7 @@ import {
   setDoc,
   getDoc
 } from '../firebase/firebase';
+import { supabase } from '../supabase.js';
 
 const AuthContext = createContext(null);
 
@@ -44,9 +45,9 @@ export function AuthProvider({ children }) {
     return data;
   };
 
-  // Sync with Firebase Auth state
+  // Sync with Firebase & Supabase Auth states (Magic Links & OTP)
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+    const unsubscribeFirebase = onAuthStateChanged(auth, async (currentUser) => {
       setUser(currentUser);
       if (currentUser) {
         let profileData = null;
@@ -76,7 +77,40 @@ export function AuthProvider({ children }) {
       setLoading(false);
     });
 
-    return () => unsubscribe();
+    let supabaseSub = null;
+    if (supabase) {
+      supabase.auth.getSession().then(({ data: { session } }) => {
+        if (session?.user) {
+          const saved = localStorage.getItem('vannetr_officer_profile');
+          let profileData = saved ? JSON.parse(saved) : null;
+          saveOfficerProfile({
+            uid: session.user.id,
+            fullName: profileData?.fullName || session.user.user_metadata?.full_name || session.user.email?.split('@')[0],
+            officerId: profileData?.officerId || 'FRA-OFF-' + session.user.id.substring(0, 6).toUpperCase(),
+            email: session.user.email
+          });
+        }
+      });
+
+      const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
+        if (session?.user) {
+          const saved = localStorage.getItem('vannetr_officer_profile');
+          let profileData = saved ? JSON.parse(saved) : null;
+          await saveOfficerProfile({
+            uid: session.user.id,
+            fullName: profileData?.fullName || session.user.user_metadata?.full_name || session.user.email?.split('@')[0],
+            officerId: profileData?.officerId || 'FRA-OFF-' + session.user.id.substring(0, 6).toUpperCase(),
+            email: session.user.email
+          });
+        }
+      });
+      supabaseSub = subscription;
+    }
+
+    return () => {
+      unsubscribeFirebase();
+      if (supabaseSub) supabaseSub.unsubscribe();
+    };
   }, []);
 
   // Sign In with Email/Password
