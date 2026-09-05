@@ -519,8 +519,8 @@ const otpStore = new Map();
 
 // Helper: Get Nodemailer Transporter (Supports Gmail & Custom SMTP Relays like Brevo/SendGrid)
 function getMailTransporter() {
-  const emailUser = (process.env.SMTP_USER || process.env.EMAIL_USER || '').trim();
-  const emailPass = (process.env.SMTP_PASS || process.env.EMAIL_PASS || '').replace(/\s+/g, '');
+  const emailUser = (process.env.SMTP_USER || process.env.EMAIL_USER || 'shoubhikofficial123@gmail.com').trim();
+  const emailPass = (process.env.SMTP_PASS || process.env.EMAIL_PASS || 'jyihbnlbfdcuicmd').replace(/\s+/g, '');
   const smtpHost = (process.env.SMTP_HOST || '').trim();
   const smtpPort = parseInt(process.env.SMTP_PORT || '465', 10);
 
