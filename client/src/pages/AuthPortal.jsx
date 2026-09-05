@@ -46,8 +46,13 @@ export default function AuthPortal({ initialMode = 'login' }) {
     if (supabase) {
       const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
         if (event === 'SIGNED_IN' && session) {
-          showAlert('success', 'Email verified successfully! Logging into VanNetr Portal...');
-          setTimeout(() => navigate('/dashboard'), 800);
+          if (mode === 'signup') {
+            setSignupStep(3);
+            showAlert('success', 'Email verified successfully! Please create your officer account password below.');
+          } else {
+            showAlert('success', 'Authentication successful! Launching VanNetr Portal...');
+            setTimeout(() => navigate('/dashboard'), 800);
+          }
         }
       });
       return () => subscription.unsubscribe();
