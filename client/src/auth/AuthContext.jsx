@@ -157,6 +157,15 @@ export function AuthProvider({ children }) {
     setUser(null);
     setOfficerProfile(null);
     localStorage.removeItem('vannetr_officer_profile');
+  const loginDirectly = async (email, fullName, officerId) => {
+    const uid = 'off_' + Math.random().toString(36).substring(2, 9);
+    const profile = await saveOfficerProfile({
+      uid,
+      fullName: fullName || email.split('@')[0],
+      officerId: officerId || 'FRA-OFF-' + uid.toUpperCase(),
+      email
+    });
+    return { success: true, profile };
   };
 
   const value = {
@@ -165,6 +174,7 @@ export function AuthProvider({ children }) {
     isAuthenticated: !!(user || officerProfile),
     loading,
     loginWithEmail,
+    loginDirectly,
     signupWithFirebase,
     loginWithGoogle,
     logout

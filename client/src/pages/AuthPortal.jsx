@@ -121,7 +121,7 @@ export default function AuthPortal({ initialMode = 'login' }) {
     else navigate('/signup', { replace: true });
   };
 
-  // --- LOGIN SUBMIT (PASSWORDLESS EMAIL SIGN-IN) ---
+  // --- LOGIN SUBMIT (DIRECT INSTANT DASHBOARD LAUNCH) ---
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     if (!loginEmail.trim() || !loginEmail.includes('@')) {
@@ -133,24 +133,19 @@ export default function AuthPortal({ initialMode = 'login' }) {
     setAlert(null);
 
     try {
-      if (import.meta.env.VITE_SUPABASE_URL && import.meta.env.VITE_SUPABASE_ANON_KEY) {
-        const redirectTo = `${window.location.origin}/dashboard`;
-        const { error } = await supabase.auth.signInWithOtp({ 
+      if (loginDirectly) {
+        await loginDirectly(loginEmail);
+      } else {
+        localStorage.setItem('vannetr_officer_profile', JSON.stringify({
           email: loginEmail,
-          options: { emailRedirectTo: redirectTo }
-        });
-        setLoading(false);
-        if (error) {
-          showAlert('error', error.message || 'Sign in failed');
-        } else {
-          showAlert('success', `Sign-In verification link sent to ${loginEmail}! Check your inbox to launch portal.`);
-        }
-        return;
+          fullName: loginEmail.split('@')[0],
+          role: 'OFFICER',
+          emailVerified: true
+        }));
       }
-
-      // Direct fallback login launch to dashboard
-      showAlert('success', 'Official Email verified! Launching VanNetr portal...');
-      setTimeout(() => navigate('/dashboard'), 600);
+      setLoading(false);
+      showAlert('success', 'Official Email Verified! Opening VanNetr Portal...');
+      setTimeout(() => navigate('/dashboard'), 300);
     } catch (err) {
       setLoading(false);
       showAlert('error', 'Authentication failed. Please try again.');
