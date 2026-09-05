@@ -496,18 +496,14 @@ export default function AuthPortal({ initialMode = 'login' }) {
                       ? 'Welcome back, Officer' 
                       : (signupStep === 1 
                           ? 'Create Officer Account' 
-                          : signupStep === 2 
-                            ? 'Verify Official Email' 
-                            : 'Create Password')}
+                          : 'Verify Official Email')}
                   </h2>
                   <p className="text-[#64748b] text-[12.5px] sm:text-[13px] mt-0.5 font-normal">
                     {mode === 'login' 
                       ? 'Sign in with your official credentials' 
                       : (signupStep === 1 
-                          ? 'Step 1 of 3: Enter your officer verification details' 
-                          : signupStep === 2 
-                            ? 'Step 2 of 3: Enter the 6-digit OTP code sent to email' 
-                            : 'Step 3 of 3: Set your secure officer password')}
+                          ? 'Step 1 of 2: Enter your officer verification details' 
+                          : 'Step 2 of 2: Enter the 6-digit OTP code sent to email')}
                   </p>
                 </div>
 
@@ -719,53 +715,6 @@ export default function AuthPortal({ initialMode = 'login' }) {
                       </form>
                     )}
 
-                    {/* STEP 3: CREATE PASSWORD */}
-                    {signupStep === 3 && (
-                      <form onSubmit={handleCreateAccount} className="space-y-3">
-                        <div className="bg-emerald-50 border border-emerald-200 p-2.5 rounded-xl text-emerald-900 text-xs font-semibold flex items-center gap-2">
-                          <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                          <span>Email Verified ({officialEmail})</span>
-                        </div>
-
-                        <PasswordInput
-                          id="signup-password"
-                          label="Password"
-                          placeholder="Enter new password"
-                          value={password}
-                          onChange={setPassword}
-                          showRequirements={true}
-                          disabled={loading}
-                        />
-
-                        <PasswordInput
-                          id="signup-confirm-password"
-                          label="Confirm Password"
-                          placeholder="Confirm password"
-                          value={confirmPassword}
-                          onChange={setConfirmPassword}
-                          disabled={loading}
-                        />
-
-                        <button
-                          type="submit"
-                          disabled={loading}
-                          className="w-full h-[52px] rounded-full relative overflow-hidden flex items-center justify-between pl-8 pr-1.5 shadow-xl hover:shadow-2xl transition-all group cursor-pointer mt-3"
-                          style={{
-                            backgroundImage: `url(${fieldVertical})`,
-                            backgroundSize: 'cover',
-                            backgroundPosition: 'center'
-                          }}
-                        >
-                          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/45 to-black/30 group-hover:from-black/60 group-hover:to-black/20 transition-colors" />
-                          <span className="relative z-10 font-outfit font-extrabold text-[17px] text-white tracking-wider drop-shadow-md">
-                            {loading ? 'Creating Account...' : 'Create Officer Account'}
-                          </span>
-                          <div className="relative z-10 w-9 h-9 rounded-full bg-[#ccff00] text-black flex items-center justify-center shadow-lg">
-                            <ShieldCheck className="w-4.5 h-4.5" />
-                          </div>
-                        </button>
-                      </form>
-                    )}
 
                   </div>
                 )}
