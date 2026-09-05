@@ -519,15 +519,20 @@ const otpStore = new Map();
 
 // Helper: Get Nodemailer Transporter
 function getMailTransporter() {
-  const emailUser = process.env.EMAIL_USER;
-  const emailPass = process.env.EMAIL_PASS;
+  const emailUser = process.env.EMAIL_USER ? process.env.EMAIL_USER.trim() : '';
+  const emailPass = process.env.EMAIL_PASS ? process.env.EMAIL_PASS.replace(/\s+/g, '') : '';
 
   if (emailUser && emailPass) {
     return nodemailer.createTransport({
-      service: process.env.EMAIL_SERVICE || 'gmail',
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true, // use SSL
       auth: {
         user: emailUser,
         pass: emailPass
+      },
+      tls: {
+        rejectUnauthorized: false
       }
     });
   }
