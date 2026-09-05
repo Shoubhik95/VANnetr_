@@ -169,11 +169,21 @@ export default function AuthPortal({ initialMode = 'login' }) {
     setAlert(null);
 
     try {
-      const res = await fetch('/api/auth/send-otp', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: officialEmail })
-      });
+      let res;
+      try {
+        res = await fetch('/api/auth/send-otp', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: officialEmail })
+        });
+        if (!res.ok && res.status >= 500) throw new Error('Proxy status error');
+      } catch {
+        res = await fetch('https://vannetr-backend.onrender.com/api/auth/send-otp', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: officialEmail })
+        });
+      }
       const data = await res.json();
       setLoading(false);
 
@@ -187,7 +197,7 @@ export default function AuthPortal({ initialMode = 'login' }) {
       }
     } catch (err) {
       setLoading(false);
-      showAlert('error', 'Network error while requesting OTP.');
+      showAlert('error', 'Backend server is starting up on Render. Please wait 10 seconds and try again.');
     }
   };
 
@@ -204,11 +214,21 @@ export default function AuthPortal({ initialMode = 'login' }) {
     setAlert(null);
 
     try {
-      const res = await fetch('/api/auth/verify-otp', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: officialEmail, otp })
-      });
+      let res;
+      try {
+        res = await fetch('/api/auth/verify-otp', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: officialEmail, otp })
+        });
+        if (!res.ok && res.status >= 500) throw new Error('Proxy status error');
+      } catch {
+        res = await fetch('https://vannetr-backend.onrender.com/api/auth/verify-otp', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: officialEmail, otp })
+        });
+      }
       const data = await res.json();
       setLoading(false);
 
@@ -233,11 +253,21 @@ export default function AuthPortal({ initialMode = 'login' }) {
     setAlert(null);
 
     try {
-      const res = await fetch('/api/auth/send-otp', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: officialEmail })
-      });
+      let res;
+      try {
+        res = await fetch('/api/auth/send-otp', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: officialEmail })
+        });
+        if (!res.ok && res.status >= 500) throw new Error('Proxy status error');
+      } catch {
+        res = await fetch('https://vannetr-backend.onrender.com/api/auth/send-otp', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: officialEmail })
+        });
+      }
       const data = await res.json();
       setLoading(false);
 
