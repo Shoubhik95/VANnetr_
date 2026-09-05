@@ -121,7 +121,7 @@ export default function AuthPortal({ initialMode = 'login' }) {
     else navigate('/signup', { replace: true });
   };
 
-  // --- LOGIN SUBMIT (SEND MAGIC LINK TO USER'S EMAIL) ---
+  // --- LOGIN SUBMIT (PASSWORDLESS EMAIL SIGN-IN -> INSTANT DASHBOARD) ---
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     const cleanEmail = loginEmail ? loginEmail.trim() : '';
@@ -134,26 +134,25 @@ export default function AuthPortal({ initialMode = 'login' }) {
     setAlert(null);
 
     try {
-      if (import.meta.env.VITE_SUPABASE_URL && import.meta.env.VITE_SUPABASE_ANON_KEY) {
-        const redirectTo = `${window.location.origin}/dashboard`;
-        const { error } = await supabase.auth.signInWithOtp({ 
+      if (loginDirectly) {
+        await loginDirectly(cleanEmail);
+      } else {
+        const fallbackUid = 'off_' + Math.random().toString(36).substring(2, 9);
+        const fallbackProfile = {
+          uid: fallbackUid,
+          fullName: cleanEmail.split('@')[0],
+          officerId: 'FRA-OFF-' + fallbackUid.toUpperCase(),
           email: cleanEmail,
-          options: { emailRedirectTo: redirectTo }
-        });
-        setLoading(false);
-        if (error) {
-          showAlert('error', error.message || 'Failed to send verification email');
-        } else {
-          showAlert('success', `Verification link sent to ${cleanEmail}! Please check your email inbox and click the link to log into VanNetr Dashboard.`);
-        }
-        return;
+          role: 'OFFICER',
+          emailVerified: true
+        };
+        localStorage.setItem('vannetr_officer_profile', JSON.stringify(fallbackProfile));
       }
-
-      // Fallback if Supabase credentials are not present
-      if (loginDirectly) await loginDirectly(cleanEmail);
       setLoading(false);
-      showAlert('success', 'Official Email Verified! Launching VanNetr Portal...');
-      setTimeout(() => navigate('/dashboard', { replace: true }), 300);
+      showAlert('success', `Welcome, Officer ${cleanEmail.split('@')[0]}! Launching VanNetr Portal...`);
+      setTimeout(() => {
+        navigate('/dashboard', { replace: true });
+      }, 300);
     } catch (err) {
       console.error("Login Error:", err);
       setLoading(false);
