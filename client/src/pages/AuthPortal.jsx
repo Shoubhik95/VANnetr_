@@ -46,13 +46,8 @@ export default function AuthPortal({ initialMode = 'login' }) {
     if (supabase) {
       const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
         if (event === 'SIGNED_IN' && session) {
-          if (mode === 'signup') {
-            setSignupStep(3);
-            showAlert('success', 'Email verified successfully! Please create your officer account password below.');
-          } else {
-            showAlert('success', 'Authentication successful! Launching VanNetr Portal...');
-            setTimeout(() => navigate('/dashboard'), 800);
-          }
+          showAlert('success', 'Email verified successfully! Launching VanNetr Portal...');
+          setTimeout(() => navigate('/dashboard'), 600);
         }
       });
       return () => subscription.unsubscribe();
@@ -254,8 +249,8 @@ export default function AuthPortal({ initialMode = 'login' }) {
           showAlert('error', error.message || 'Invalid Supabase OTP code');
           setOtp('');
         } else {
-          setSignupStep(3);
-          showAlert('success', 'Email verified successfully via Supabase! Now create your password.');
+          showAlert('success', 'Email verified successfully! Launching VanNetr Portal...');
+          setTimeout(() => navigate('/dashboard'), 600);
         }
         return;
       }
@@ -269,8 +264,8 @@ export default function AuthPortal({ initialMode = 'login' }) {
       setLoading(false);
 
       if (data.success) {
-        setSignupStep(3);
-        showAlert('success', 'Email verified successfully! Now create your password.');
+        showAlert('success', 'Email verified successfully! Launching VanNetr Portal...');
+        setTimeout(() => navigate('/dashboard'), 600);
       } else {
         showAlert('error', data.message || 'Invalid OTP verification code');
         setOtp('');
