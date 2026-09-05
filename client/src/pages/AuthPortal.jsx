@@ -34,7 +34,7 @@ export default function AuthPortal({ initialMode = 'login' }) {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const { loginWithEmail, signupWithFirebase, loginWithGoogle, isAuthenticated } = useAuth();
+  const { loginWithEmail, loginDirectly, signupWithFirebase, loginWithGoogle, isAuthenticated } = useAuth();
 
   // Redirect to dashboard if already authenticated (or via Supabase Magic Link click)
   useEffect(() => {
@@ -124,7 +124,8 @@ export default function AuthPortal({ initialMode = 'login' }) {
   // --- LOGIN SUBMIT (DIRECT INSTANT DASHBOARD LAUNCH) ---
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
-    if (!loginEmail.trim() || !loginEmail.includes('@')) {
+    const cleanEmail = loginEmail ? loginEmail.trim() : '';
+    if (!cleanEmail || !cleanEmail.includes('@')) {
       showAlert('error', 'Please enter a valid official email address');
       return;
     }
@@ -134,19 +135,26 @@ export default function AuthPortal({ initialMode = 'login' }) {
 
     try {
       if (loginDirectly) {
-        await loginDirectly(loginEmail);
+        await loginDirectly(cleanEmail);
       } else {
-        localStorage.setItem('vannetr_officer_profile', JSON.stringify({
-          email: loginEmail,
-          fullName: loginEmail.split('@')[0],
+        const fallbackUid = 'off_' + Math.random().toString(36).substring(2, 9);
+        const fallbackProfile = {
+          uid: fallbackUid,
+          fullName: cleanEmail.split('@')[0],
+          officerId: 'FRA-OFF-' + fallbackUid.toUpperCase(),
+          email: cleanEmail,
           role: 'OFFICER',
           emailVerified: true
-        }));
+        };
+        localStorage.setItem('vannetr_officer_profile', JSON.stringify(fallbackProfile));
       }
       setLoading(false);
-      showAlert('success', 'Official Email Verified! Opening VanNetr Portal...');
-      setTimeout(() => navigate('/dashboard'), 300);
+      showAlert('success', 'Official Email Verified! Launching VanNetr Portal...');
+      setTimeout(() => {
+        navigate('/dashboard', { replace: true });
+      }, 200);
     } catch (err) {
+      console.error("Login Error:", err);
       setLoading(false);
       showAlert('error', 'Authentication failed. Please try again.');
     }

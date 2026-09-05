@@ -30,18 +30,23 @@ export function AuthProvider({ children }) {
 
   // Helper: Save profile locally only (no database creation)
   const saveOfficerProfile = async (profile) => {
+    const uid = profile?.uid || 'off_' + Math.random().toString(36).substring(2, 9);
     const data = {
-      uid: profile.uid,
-      fullName: profile.fullName || 'Officer',
-      officerId: profile.officerId || 'FRA-OFF-' + profile.uid.substring(0, 6).toUpperCase(),
-      email: profile.email,
+      uid: uid,
+      fullName: profile?.fullName || profile?.email?.split('@')[0] || 'Officer',
+      officerId: profile?.officerId || 'FRA-OFF-' + uid.substring(0, 6).toUpperCase(),
+      email: profile?.email || '',
       role: 'OFFICER',
       emailVerified: true,
       updatedAt: new Date().toISOString()
     };
 
     setOfficerProfile(data);
-    localStorage.setItem('vannetr_officer_profile', JSON.stringify(data));
+    try {
+      localStorage.setItem('vannetr_officer_profile', JSON.stringify(data));
+    } catch (e) {
+      console.error("LocalStorage save error:", e);
+    }
     return data;
   };
 
