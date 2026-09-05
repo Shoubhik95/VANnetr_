@@ -4,6 +4,7 @@ import { useAuth } from '../auth/AuthContext';
 import { auth } from '../firebase/firebase';
 import { sendPasswordResetEmail } from 'firebase/auth';
 import OTPInput from '../components/OTPInput';
+import { supabase } from '../supabase.js';
 import PasswordInput from '../components/PasswordInput';
 import { 
   ArrowUpRight, 
@@ -169,6 +170,20 @@ export default function AuthPortal({ initialMode = 'login' }) {
     setAlert(null);
 
     try {
+      if (import.meta.env.VITE_SUPABASE_URL && import.meta.env.VITE_SUPABASE_ANON_KEY) {
+        const { error } = await supabase.auth.signInWithOtp({ email: officialEmail });
+        setLoading(false);
+        if (error) {
+          showAlert('error', error.message || 'Failed to send Supabase OTP');
+        } else {
+          setSignupStep(2);
+          setResendCooldown(30);
+          setOtpExpirySeconds(300);
+          showAlert('success', `Verification OTP sent via Supabase to ${officialEmail}`);
+        }
+        return;
+      }
+
       let res;
       try {
         res = await fetch('/api/auth/send-otp', {
@@ -176,9 +191,8 @@ export default function AuthPortal({ initialMode = 'login' }) {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email: officialEmail })
         });
-        if (!res.ok && res.status >= 500) throw new Error('Proxy status error');
       } catch {
-        res = await fetch('https://vannetr-backend.onrender.com/api/auth/send-otp', {
+        res = await fetch('/api/auth/send-otp', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email: officialEmail })
@@ -197,7 +211,7 @@ export default function AuthPortal({ initialMode = 'login' }) {
       }
     } catch (err) {
       setLoading(false);
-      showAlert('error', 'Backend server is starting up on Render. Please wait 10 seconds and try again.');
+      showAlert('error', 'Error requesting OTP.');
     }
   };
 
@@ -214,21 +228,24 @@ export default function AuthPortal({ initialMode = 'login' }) {
     setAlert(null);
 
     try {
-      let res;
-      try {
-        res = await fetch('/api/auth/verify-otp', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email: officialEmail, otp })
-        });
-        if (!res.ok && res.status >= 500) throw new Error('Proxy status error');
-      } catch {
-        res = await fetch('https://vannetr-backend.onrender.com/api/auth/verify-otp', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email: officialEmail, otp })
-        });
+      if (import.meta.env.VITE_SUPABASE_URL && import.meta.env.VITE_SUPABASE_ANON_KEY) {
+        const { error } = await supabase.auth.verifyOtp({ email: officialEmail, token: otp, type: 'email' });
+        setLoading(false);
+        if (error) {
+          showAlert('error', error.message || 'Invalid Supabase OTP code');
+          setOtp('');
+        } else {
+          setSignupStep(3);
+          showAlert('success', 'Email verified successfully via Supabase! Now create your password.');
+        }
+        return;
       }
+
+      let res = await fetch('/api/auth/verify-otp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: officialEmail, otp })
+      });
       const data = await res.json();
       setLoading(false);
 
