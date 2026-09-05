@@ -643,9 +643,7 @@ app.post('/api/auth/send-otp', async (req, res) => {
 
   res.json({
     success: true,
-    message: mailDelivered 
-      ? `OTP sent to your email (${cleanEmail})! Please check your Inbox and Spam folder.`
-      : `OTP sent to ${cleanEmail}. Please check your Inbox and Spam folder.`,
+    message: `OTP sent to ${cleanEmail}. Please check your Inbox and Spam folder.`,
     expiresInSeconds: 300,
     cooldownSeconds: 30
   });
