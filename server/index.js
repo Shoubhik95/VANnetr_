@@ -824,5 +824,7 @@ app.listen(PORT, () => {
   console.log(`🌲 VanNetr FRA Decision Support Server running on port ${PORT}`);
 });
 
+export default app;
+
 
 
