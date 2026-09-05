@@ -524,15 +524,10 @@ function getMailTransporter() {
 
   if (emailUser && emailPass) {
     return nodemailer.createTransport({
-      host: 'smtp.gmail.com',
-      port: 465,
-      secure: true, // use SSL
+      service: 'gmail',
       auth: {
         user: emailUser,
         pass: emailPass
-      },
-      tls: {
-        rejectUnauthorized: false
       }
     });
   }
