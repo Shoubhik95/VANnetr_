@@ -1,0 +1,422 @@
+{
+  "states": {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "state": "Odisha",
+          "center": [20.9517, 85.0985],
+          "zoom": 7,
+          "totalClaims": 18,
+          "approved": 11,
+          "pending": 4,
+          "flagged": 3,
+          "rejected": 0,
+          "approvalRate": 61,
+          "grantedLandHa": 89.2,
+          "anomalies": 3
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [86.7, 22.5], [87.5, 21.8], [87.1, 21.3], [86.8, 20.8], [86.4, 20.2], 
+              [85.8, 19.8], [85.1, 19.3], [84.7, 18.9], [83.8, 18.2], [82.5, 18.0], 
+              [81.9, 18.3], [82.4, 19.2], [82.6, 20.0], [83.0, 20.8], [82.8, 21.6], 
+              [83.5, 22.0], [84.0, 22.4], [85.2, 22.3], [86.1, 22.6], [86.7, 22.5]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "state": "Chhattisgarh",
+          "center": [21.2787, 81.8661],
+          "zoom": 7,
+          "totalClaims": 12,
+          "approved": 5,
+          "pending": 4,
+          "flagged": 3,
+          "rejected": 1,
+          "approvalRate": 42,
+          "grantedLandHa": 34.5,
+          "anomalies": 4
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [83.4, 23.9], [84.1, 22.8], [83.5, 22.0], [82.8, 21.6], [83.0, 20.8], 
+              [82.6, 20.0], [81.8, 18.8], [81.3, 17.8], [80.5, 18.6], [80.7, 19.9], 
+              [80.6, 21.1], [81.0, 22.1], [81.5, 23.3], [82.5, 23.8], [83.4, 23.9]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "state": "Madhya Pradesh",
+          "center": [22.9734, 78.6569],
+          "zoom": 7,
+          "totalClaims": 10,
+          "approved": 4,
+          "pending": 3,
+          "flagged": 3,
+          "rejected": 0,
+          "approvalRate": 40,
+          "grantedLandHa": 28.6,
+          "anomalies": 3
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [81.5, 23.3], [81.0, 22.1], [80.6, 21.8], [79.2, 21.5], [77.5, 21.3], 
+              [75.5, 21.8], [74.5, 22.4], [74.8, 24.2], [76.5, 25.5], [78.2, 26.2], 
+              [80.0, 25.2], [82.0, 24.5], [82.5, 23.8], [81.5, 23.3]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "state": "Maharashtra",
+          "center": [19.7515, 75.7139],
+          "zoom": 7,
+          "totalClaims": 6,
+          "approved": 3,
+          "pending": 2,
+          "flagged": 1,
+          "rejected": 0,
+          "approvalRate": 50,
+          "grantedLandHa": 48.0,
+          "anomalies": 1
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [80.6, 21.1], [80.7, 19.9], [80.5, 18.6], [78.8, 18.2], [77.5, 18.5], 
+              [76.0, 17.5], [74.2, 16.0], [73.2, 17.0], [72.8, 19.2], [73.5, 20.3], 
+              [74.5, 22.0], [75.5, 21.8], [77.5, 21.3], [79.2, 21.5], [80.6, 21.1]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "state": "Jharkhand",
+          "center": [23.6102, 85.2799],
+          "zoom": 7,
+          "totalClaims": 5,
+          "approved": 2,
+          "pending": 2,
+          "flagged": 1,
+          "rejected": 0,
+          "approvalRate": 40,
+          "grantedLandHa": 19.5,
+          "anomalies": 1
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [84.1, 22.8], [83.4, 23.9], [83.8, 24.4], [85.5, 24.8], [87.2, 24.5], 
+              [87.5, 23.5], [86.7, 22.5], [86.1, 22.6], [85.2, 22.3], [84.1, 22.8]
+            ]
+          ]
+        }
+      }
+    ]
+  },
+  "districts": {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "district": "Mayurbhanj",
+          "state": "Odisha",
+          "center": [21.8500, 86.3500],
+          "zoom": 10,
+          "totalClaims": 6,
+          "approved": 3,
+          "pending": 1,
+          "flagged": 2,
+          "rejected": 0,
+          "approvalRate": 50,
+          "grantedLandHa": 24.5,
+          "anomalies": 2,
+          "hotspotRisk": "HIGH",
+          "note": "Similipal Tiger Reserve Buffer & High SLA pending backlog"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [85.80, 21.50], [86.40, 21.40], [86.90, 21.60], [87.10, 22.10], 
+              [86.70, 22.50], [86.00, 22.40], [85.70, 21.90], [85.80, 21.50]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "district": "Sundargarh",
+          "state": "Odisha",
+          "center": [22.2500, 84.1500],
+          "zoom": 10,
+          "totalClaims": 4,
+          "approved": 3,
+          "pending": 1,
+          "flagged": 0,
+          "rejected": 0,
+          "approvalRate": 75,
+          "grantedLandHa": 16.8,
+          "anomalies": 0,
+          "hotspotRisk": "LOW",
+          "note": "High rate of community & individual title recognitions"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [83.50, 21.90], [84.50, 21.80], [85.20, 22.10], [85.10, 22.60], 
+              [84.30, 22.55], [83.60, 22.30], [83.50, 21.90]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "district": "Koraput",
+          "state": "Odisha",
+          "center": [18.8100, 82.7100],
+          "zoom": 10,
+          "totalClaims": 4,
+          "approved": 3,
+          "pending": 1,
+          "flagged": 0,
+          "rejected": 0,
+          "approvalRate": 75,
+          "grantedLandHa": 52.4,
+          "anomalies": 0,
+          "hotspotRisk": "LOW",
+          "note": "Extensive Community Forest Resource (CFR) titles granted"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [82.20, 18.20], [83.10, 18.40], [83.20, 19.10], [82.50, 19.30], 
+              [82.00, 18.70], [82.20, 18.20]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "district": "Kandhamal",
+          "state": "Odisha",
+          "center": [20.4700, 84.2300],
+          "zoom": 10,
+          "totalClaims": 4,
+          "approved": 2,
+          "pending": 1,
+          "flagged": 1,
+          "rejected": 0,
+          "approvalRate": 50,
+          "grantedLandHa": 11.2,
+          "anomalies": 1,
+          "hotspotRisk": "MEDIUM",
+          "note": "SLA breaches at DLC level during title digitization"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [83.60, 20.10], [84.60, 20.00], [84.80, 20.70], [84.10, 20.80], 
+              [83.50, 20.50], [83.60, 20.10]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "district": "Bastar",
+          "state": "Chhattisgarh",
+          "center": [19.1500, 81.7500],
+          "zoom": 10,
+          "totalClaims": 5,
+          "approved": 1,
+          "pending": 2,
+          "flagged": 2,
+          "rejected": 1,
+          "approvalRate": 20,
+          "grantedLandHa": 8.4,
+          "anomalies": 3,
+          "hotspotRisk": "HIGH",
+          "note": "Gram Sabha rejection spikes and OTFD 75-year evidence disputes"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [81.30, 18.90], [82.10, 19.00], [82.20, 19.60], [81.50, 19.70], 
+              [81.10, 19.20], [81.30, 18.90]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "district": "Kanker",
+          "state": "Chhattisgarh",
+          "center": [20.2700, 81.4900],
+          "zoom": 10,
+          "totalClaims": 4,
+          "approved": 2,
+          "pending": 1,
+          "flagged": 1,
+          "rejected": 0,
+          "approvalRate": 50,
+          "grantedLandHa": 14.1,
+          "anomalies": 1,
+          "hotspotRisk": "MEDIUM",
+          "note": "Joint survey boundary polygon reconciliations underway"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [80.80, 20.00], [81.70, 19.90], [81.80, 20.50], [81.10, 20.60], 
+              [80.70, 20.20], [80.80, 20.00]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "district": "Dantewada",
+          "state": "Chhattisgarh",
+          "center": [18.9000, 81.3500],
+          "zoom": 10,
+          "totalClaims": 3,
+          "approved": 2,
+          "pending": 1,
+          "flagged": 0,
+          "rejected": 0,
+          "approvalRate": 67,
+          "grantedLandHa": 12.0,
+          "anomalies": 0,
+          "hotspotRisk": "LOW",
+          "note": "Community water & gathering rights recognized"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [81.00, 18.50], [81.60, 18.60], [81.70, 19.10], [81.10, 19.00], 
+              [80.90, 18.70], [81.00, 18.50]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "district": "Mandla",
+          "state": "Madhya Pradesh",
+          "center": [22.6000, 80.4000],
+          "zoom": 10,
+          "totalClaims": 4,
+          "approved": 2,
+          "pending": 1,
+          "flagged": 1,
+          "rejected": 0,
+          "approvalRate": 50,
+          "grantedLandHa": 15.2,
+          "anomalies": 1,
+          "hotspotRisk": "MEDIUM",
+          "note": "Kanha National Park buffer zone overlap checks"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [79.80, 22.30], [80.70, 22.20], [81.00, 22.80], [80.20, 23.00], 
+              [79.70, 22.60], [79.80, 22.30]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "district": "Dindori",
+          "state": "Madhya Pradesh",
+          "center": [22.9400, 81.0800],
+          "zoom": 10,
+          "totalClaims": 3,
+          "approved": 1,
+          "pending": 1,
+          "flagged": 1,
+          "rejected": 0,
+          "approvalRate": 33,
+          "grantedLandHa": 7.4,
+          "anomalies": 1,
+          "hotspotRisk": "HIGH",
+          "note": "Baiga PVTG Habitat Rights mapping in progress"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [80.60, 22.70], [81.40, 22.60], [81.50, 23.20], [80.80, 23.30], 
+              [80.50, 22.90], [80.60, 22.70]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "district": "Gadchiroli",
+          "state": "Maharashtra",
+          "center": [19.8500, 80.1000],
+          "zoom": 10,
+          "totalClaims": 6,
+          "approved": 3,
+          "pending": 2,
+          "flagged": 1,
+          "rejected": 0,
+          "approvalRate": 50,
+          "grantedLandHa": 48.0,
+          "anomalies": 1,
+          "hotspotRisk": "LOW",
+          "note": "Pioneering CFR tendu leaf harvesting governance model"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [79.50, 19.30], [80.50, 19.10], [80.70, 20.40], [79.90, 20.50], 
+              [79.40, 19.80], [79.50, 19.30]
+            ]
+          ]
+        }
+      }
+    ]
+  }
+}

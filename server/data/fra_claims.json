@@ -1,0 +1,902 @@
+[
+  {
+    "id": "FRA-OD-MAY-001",
+    "applicantName": "Janka Munda",
+    "applicantType": "Individual (IFR)",
+    "category": "ST",
+    "state": "Odisha",
+    "district": "Mayurbhanj",
+    "block": "Kaptipada",
+    "gramSabha": "Salchua",
+    "surveyNumber": "SY-142/A",
+    "claimedAreaHa": 2.4,
+    "mappedAreaHa": 2.45,
+    "submissionDate": "2023-11-10",
+    "currentStage": "DLC",
+    "daysPending": 298,
+    "status": "Flagged Anomaly",
+    "anomalies": ["SLA_BREACH"],
+    "anomalyRisk": "MEDIUM",
+    "anomalyDetails": "Claim pending at DLC level for 298 days exceeding standard 180-day SLA limit.",
+    "documents": {
+      "gramSabhaResolution": "Verified",
+      "casteCertificate": "Verified",
+      "jointVerificationReport": "Verified",
+      "evidence75Years": "N/A (ST)"
+    },
+    "coordinates": [21.5234, 86.5123],
+    "polygon": [
+      [21.5220, 86.5110], [21.5250, 86.5115], [21.5245, 86.5138], [21.5215, 86.5130], [21.5220, 86.5110]
+    ]
+  },
+  {
+    "id": "FRA-OD-MAY-002",
+    "applicantName": "Raysen Soren & Gram Sabha",
+    "applicantType": "Community (CFR)",
+    "category": "ST",
+    "state": "Odisha",
+    "district": "Mayurbhanj",
+    "block": "Karanjia",
+    "gramSabha": "Gudgudia",
+    "surveyNumber": "CFR-FOREST-09",
+    "claimedAreaHa": 14.5,
+    "mappedAreaHa": 22.8,
+    "submissionDate": "2024-02-18",
+    "currentStage": "SDLC",
+    "daysPending": 198,
+    "status": "Flagged Anomaly",
+    "anomalies": ["LAND_MISMATCH", "AREA_DISCREPANCY"],
+    "anomalyRisk": "HIGH",
+    "anomalyDetails": "Mapped GPS boundary (22.8 Ha) is 57% larger than claimed area (14.5 Ha) and encroaches into Similipal Tiger Reserve Buffer Zone.",
+    "documents": {
+      "gramSabhaResolution": "Verified",
+      "casteCertificate": "Verified",
+      "jointVerificationReport": "Discrepancy",
+      "evidence75Years": "N/A (ST)"
+    },
+    "coordinates": [21.8412, 86.1542],
+    "polygon": [
+      [21.8380, 86.1500], [21.8440, 86.1510], [21.8450, 86.1580], [21.8390, 86.1570], [21.8380, 86.1500]
+    ]
+  },
+  {
+    "id": "FRA-OD-SUN-003",
+    "applicantName": "Budhu Oram",
+    "applicantType": "Individual (IFR)",
+    "category": "ST",
+    "state": "Odisha",
+    "district": "Sundargarh",
+    "block": "Subdega",
+    "gramSabha": "Kirmira",
+    "surveyNumber": "SY-88/1",
+    "claimedAreaHa": 1.8,
+    "mappedAreaHa": 1.78,
+    "submissionDate": "2024-04-05",
+    "currentStage": "Title Granted",
+    "daysPending": 0,
+    "status": "Approved",
+    "anomalies": [],
+    "anomalyRisk": "NONE",
+    "anomalyDetails": "Clean record. Title certificate granted on 2024-07-12.",
+    "documents": {
+      "gramSabhaResolution": "Verified",
+      "casteCertificate": "Verified",
+      "jointVerificationReport": "Verified",
+      "evidence75Years": "N/A (ST)"
+    },
+    "coordinates": [22.2541, 84.1205],
+    "polygon": [
+      [22.2530, 84.1190], [22.2560, 84.1195], [22.2550, 84.1220], [22.2525, 84.1215], [22.2530, 84.1190]
+    ]
+  },
+  {
+    "id": "FRA-CT-BAS-004",
+    "applicantName": "Manglu Ram Mandavi",
+    "applicantType": "Individual (IFR)",
+    "category": "OTFD",
+    "state": "Chhattisgarh",
+    "district": "Bastar",
+    "block": "Lohandiguda",
+    "gramSabha": "Chitrakote",
+    "surveyNumber": "SY-304/B",
+    "claimedAreaHa": 3.2,
+    "mappedAreaHa": 3.15,
+    "submissionDate": "2023-09-14",
+    "currentStage": "Gram Sabha",
+    "daysPending": 355,
+    "status": "Flagged Anomaly",
+    "anomalies": ["SLA_BREACH", "GRAMSABHA_REJECTION_SPIKE"],
+    "anomalyRisk": "HIGH",
+    "anomalyDetails": "Pending 355 days at Gram Sabha level; High rejection density (64% rejection rate) flagged in Lohandiguda block for OTFD applicants.",
+    "documents": {
+      "gramSabhaResolution": "Pending",
+      "casteCertificate": "Verified",
+      "jointVerificationReport": "Pending",
+      "evidence75Years": "Missing"
+    },
+    "coordinates": [19.2084, 81.7012],
+    "polygon": [
+      [19.2065, 81.6995], [19.2100, 81.7000], [19.2095, 81.7030], [19.2060, 81.7025], [19.2065, 81.6995]
+    ]
+  },
+  {
+    "id": "FRA-MP-MAN-005",
+    "applicantName": "Phoolwati Maravi",
+    "applicantType": "Individual (IFR)",
+    "category": "ST",
+    "state": "Madhya Pradesh",
+    "district": "Mandla",
+    "block": "Bichhiya",
+    "gramSabha": "Mawai",
+    "surveyNumber": "SY-12/4",
+    "claimedAreaHa": 2.1,
+    "mappedAreaHa": 3.8,
+    "submissionDate": "2024-03-20",
+    "currentStage": "SDLC",
+    "daysPending": 168,
+    "status": "Flagged Anomaly",
+    "anomalies": ["AREA_DISCREPANCY"],
+    "anomalyRisk": "MEDIUM",
+    "anomalyDetails": "GPS survey area (3.8 Ha) exceeds claimed area (2.1 Ha) by 80.9%. Requires ground verification.",
+    "documents": {
+      "gramSabhaResolution": "Verified",
+      "casteCertificate": "Verified",
+      "jointVerificationReport": "Discrepancy",
+      "evidence75Years": "N/A (ST)"
+    },
+    "coordinates": [22.4512, 80.5214],
+    "polygon": [
+      [22.4490, 80.5195], [22.4530, 80.5200], [22.4525, 80.5235], [22.4485, 80.5225], [22.4490, 80.5195]
+    ]
+  },
+  {
+    "id": "FRA-OD-KOR-006",
+    "applicantName": "Dambu Santa & Village Community",
+    "applicantType": "Community Resource (CR)",
+    "category": "ST",
+    "state": "Odisha",
+    "district": "Koraput",
+    "block": "Lamtaput",
+    "gramSabha": "Machkund",
+    "surveyNumber": "CR-RESOURCE-03",
+    "claimedAreaHa": 45.0,
+    "mappedAreaHa": 44.8,
+    "submissionDate": "2024-01-08",
+    "currentStage": "Title Granted",
+    "daysPending": 0,
+    "status": "Approved",
+    "anomalies": [],
+    "anomalyRisk": "NONE",
+    "anomalyDetails": "Community Resource Title Granted for minor forest produce harvesting.",
+    "documents": {
+      "gramSabhaResolution": "Verified",
+      "casteCertificate": "Verified",
+      "jointVerificationReport": "Verified",
+      "evidence75Years": "N/A (ST)"
+    },
+    "coordinates": [18.4234, 82.5512],
+    "polygon": [
+      [18.4180, 82.5450], [18.4280, 82.5470], [18.4260, 82.5570], [18.4160, 82.5550], [18.4180, 82.5450]
+    ]
+  },
+  {
+    "id": "FRA-CT-KAN-007",
+    "applicantName": "Somaru Netam",
+    "applicantType": "Individual (IFR)",
+    "category": "ST",
+    "state": "Chhattisgarh",
+    "district": "Kanker",
+    "block": "Antagarh",
+    "gramSabha": "Koyalibeda",
+    "surveyNumber": "SY-91/C",
+    "claimedAreaHa": 1.5,
+    "mappedAreaHa": 1.48,
+    "submissionDate": "2024-05-12",
+    "currentStage": "DLC",
+    "daysPending": 115,
+    "status": "Pending",
+    "anomalies": [],
+    "anomalyRisk": "NONE",
+    "anomalyDetails": "Under active DLC review. Joint verification completed cleanly.",
+    "documents": {
+      "gramSabhaResolution": "Verified",
+      "casteCertificate": "Verified",
+      "jointVerificationReport": "Verified",
+      "evidence75Years": "N/A (ST)"
+    },
+    "coordinates": [20.0845, 81.2104],
+    "polygon": [
+      [20.0830, 81.2090], [20.0860, 81.2095], [20.0850, 81.2120], [20.0825, 81.2115], [20.0830, 81.2090]
+    ]
+  },
+  {
+    "id": "FRA-MP-DIN-008",
+    "applicantName": "Chaitram Baiga (PVTG)",
+    "applicantType": "Individual (IFR)",
+    "category": "PVTG",
+    "state": "Madhya Pradesh",
+    "district": "Dindori",
+    "block": "Samnapur",
+    "gramSabha": "Bajag",
+    "surveyNumber": "SY-67/2",
+    "claimedAreaHa": 3.0,
+    "mappedAreaHa": 2.95,
+    "submissionDate": "2023-08-01",
+    "currentStage": "SDLC",
+    "daysPending": 399,
+    "status": "Flagged Anomaly",
+    "anomalies": ["SLA_BREACH", "LAND_MISMATCH"],
+    "anomalyRisk": "HIGH",
+    "anomalyDetails": "399 days pending at SDLC level; Mapped plot overlaps 0.4 Ha into Wildlife Sanctuary Buffer Corridor.",
+    "documents": {
+      "gramSabhaResolution": "Verified",
+      "casteCertificate": "Verified",
+      "jointVerificationReport": "Discrepancy",
+      "evidence75Years": "N/A (PVTG)"
+    },
+    "coordinates": [22.9412, 81.0823],
+    "polygon": [
+      [22.9395, 81.0805], [22.9430, 81.0810], [22.9420, 81.0840], [22.9390, 81.0835], [22.9395, 81.0805]
+    ]
+  },
+  {
+    "id": "FRA-OD-KAN-009",
+    "applicantName": "Ramesh Majhi",
+    "applicantType": "Individual (IFR)",
+    "category": "ST",
+    "state": "Odisha",
+    "district": "Kandhamal",
+    "block": "Phulbani",
+    "gramSabha": "Khajuripada",
+    "surveyNumber": "SY-211/A",
+    "claimedAreaHa": 2.2,
+    "mappedAreaHa": 2.18,
+    "submissionDate": "2024-03-01",
+    "currentStage": "DLC",
+    "daysPending": 187,
+    "status": "Flagged Anomaly",
+    "anomalies": ["SLA_BREACH"],
+    "anomalyRisk": "LOW",
+    "anomalyDetails": "SLA boundary crossed by 7 days. Scheduled for upcoming DLC meeting.",
+    "documents": {
+      "gramSabhaResolution": "Verified",
+      "casteCertificate": "Verified",
+      "jointVerificationReport": "Verified",
+      "evidence75Years": "N/A (ST)"
+    },
+    "coordinates": [20.4712, 84.2314],
+    "polygon": [
+      [20.4700, 84.2300], [20.4730, 84.2305], [20.4720, 84.2330], [20.4695, 84.2325], [20.4700, 84.2300]
+    ]
+  },
+  {
+    "id": "FRA-CT-BAS-010",
+    "applicantName": "Kumari Poyam",
+    "applicantType": "Individual (IFR)",
+    "category": "ST",
+    "state": "Chhattisgarh",
+    "district": "Bastar",
+    "block": "Bastanar",
+    "gramSabha": "Bade Kile",
+    "surveyNumber": "SY-15/9",
+    "claimedAreaHa": 1.2,
+    "mappedAreaHa": 1.22,
+    "submissionDate": "2024-06-10",
+    "currentStage": "SDLC",
+    "daysPending": 86,
+    "status": "Pending",
+    "anomalies": [],
+    "anomalyRisk": "NONE",
+    "anomalyDetails": "Normal processing timeline. Joint field inspection scheduled.",
+    "documents": {
+      "gramSabhaResolution": "Verified",
+      "casteCertificate": "Verified",
+      "jointVerificationReport": "Pending",
+      "evidence75Years": "N/A (ST)"
+    },
+    "coordinates": [19.0512, 81.5234],
+    "polygon": [
+      [19.0500, 81.5220], [19.0530, 81.5225], [19.0520, 81.5250], [19.0495, 81.5245], [19.0500, 81.5220]
+    ]
+  },
+  {
+    "id": "FRA-MH-GAD-011",
+    "applicantName": "Devaji Tofa & Mendha Lekha Gram Sabha",
+    "applicantType": "Community (CFR)",
+    "category": "ST",
+    "state": "Maharashtra",
+    "district": "Gadchiroli",
+    "block": "Dhanora",
+    "gramSabha": "Mendha Lekha",
+    "surveyNumber": "CFR-GAD-01",
+    "claimedAreaHa": 1800.0,
+    "mappedAreaHa": 1800.0,
+    "submissionDate": "2023-01-15",
+    "currentStage": "Title Granted",
+    "daysPending": 0,
+    "status": "Approved",
+    "anomalies": [],
+    "anomalyRisk": "NONE",
+    "anomalyDetails": "Model CFR Title Granted. Sovereign community forest governance under Section 3(1)(i).",
+    "documents": {
+      "gramSabhaResolution": "Verified",
+      "casteCertificate": "Verified",
+      "jointVerificationReport": "Verified",
+      "evidence75Years": "N/A (ST)"
+    },
+    "coordinates": [20.1234, 80.2512],
+    "polygon": [
+      [20.1180, 80.2450], [20.1300, 80.2460], [20.1280, 80.2580], [20.1160, 80.2550], [20.1180, 80.2450]
+    ]
+  },
+  {
+    "id": "FRA-MH-GAD-012",
+    "applicantName": "Lalsu Nogoti",
+    "applicantType": "Individual (IFR)",
+    "category": "ST",
+    "state": "Maharashtra",
+    "district": "Gadchiroli",
+    "block": "Etapalli",
+    "gramSabha": "Surjagarh",
+    "surveyNumber": "SY-81/4",
+    "claimedAreaHa": 2.8,
+    "mappedAreaHa": 2.75,
+    "submissionDate": "2024-02-11",
+    "currentStage": "Title Granted",
+    "daysPending": 0,
+    "status": "Approved",
+    "anomalies": [],
+    "anomalyRisk": "NONE",
+    "anomalyDetails": "Verified title granted with GPS boundaries geo-tagged into state land portal.",
+    "documents": {
+      "gramSabhaResolution": "Verified",
+      "casteCertificate": "Verified",
+      "jointVerificationReport": "Verified",
+      "evidence75Years": "N/A (ST)"
+    },
+    "coordinates": [19.6541, 80.3210],
+    "polygon": [
+      [19.6520, 80.3190], [19.6560, 80.3200], [19.6550, 80.3230], [19.6515, 80.3220], [19.6520, 80.3190]
+    ]
+  },
+  {
+    "id": "FRA-MH-GAD-013",
+    "applicantName": "Bapu Hichami",
+    "applicantType": "Individual (IFR)",
+    "category": "ST",
+    "state": "Maharashtra",
+    "district": "Gadchiroli",
+    "block": "Bhamragad",
+    "gramSabha": "Laheri",
+    "surveyNumber": "SY-44/2",
+    "claimedAreaHa": 3.5,
+    "mappedAreaHa": 4.9,
+    "submissionDate": "2023-10-05",
+    "currentStage": "SDLC",
+    "daysPending": 334,
+    "status": "Flagged Anomaly",
+    "anomalies": ["AREA_DISCREPANCY", "SLA_BREACH"],
+    "anomalyRisk": "HIGH",
+    "anomalyDetails": "Mapped boundary exceeds application by 40% (4.9 Ha vs 3.5 Ha); Pending for 334 days without resolution.",
+    "documents": {
+      "gramSabhaResolution": "Verified",
+      "casteCertificate": "Verified",
+      "jointVerificationReport": "Discrepancy",
+      "evidence75Years": "N/A (ST)"
+    },
+    "coordinates": [19.3821, 80.5512],
+    "polygon": [
+      [19.3800, 80.5490], [19.3850, 80.5500], [19.3840, 80.5540], [19.3790, 80.5530], [19.3800, 80.5490]
+    ]
+  },
+  {
+    "id": "FRA-OD-MAY-014",
+    "applicantName": "Gopal Hansdah",
+    "applicantType": "Individual (IFR)",
+    "category": "ST",
+    "state": "Odisha",
+    "district": "Mayurbhanj",
+    "block": "Rairangpur",
+    "gramSabha": "Bahalda",
+    "surveyNumber": "SY-99/D",
+    "claimedAreaHa": 1.6,
+    "mappedAreaHa": 1.62,
+    "submissionDate": "2024-01-20",
+    "currentStage": "Title Granted",
+    "daysPending": 0,
+    "status": "Approved",
+    "anomalies": [],
+    "anomalyRisk": "NONE",
+    "anomalyDetails": "Title deed registered and laminated card distributed to tribal household.",
+    "documents": {
+      "gramSabhaResolution": "Verified",
+      "casteCertificate": "Verified",
+      "jointVerificationReport": "Verified",
+      "evidence75Years": "N/A (ST)"
+    },
+    "coordinates": [22.2712, 86.1734],
+    "polygon": [
+      [22.2700, 86.1720], [22.2730, 86.1725], [22.2720, 86.1750], [22.2695, 86.1745], [22.2700, 86.1720]
+    ]
+  },
+  {
+    "id": "FRA-OD-MAY-015",
+    "applicantName": "Basanti Birua",
+    "applicantType": "Individual (IFR)",
+    "category": "ST",
+    "state": "Odisha",
+    "district": "Mayurbhanj",
+    "block": "Baripada",
+    "gramSabha": "Shamakhunta",
+    "surveyNumber": "SY-120/1",
+    "claimedAreaHa": 2.0,
+    "mappedAreaHa": 1.98,
+    "submissionDate": "2024-04-18",
+    "currentStage": "Title Granted",
+    "daysPending": 0,
+    "status": "Approved",
+    "anomalies": [],
+    "anomalyRisk": "NONE",
+    "anomalyDetails": "Approved in recent DLC quarterly review.",
+    "documents": {
+      "gramSabhaResolution": "Verified",
+      "casteCertificate": "Verified",
+      "jointVerificationReport": "Verified",
+      "evidence75Years": "N/A (ST)"
+    },
+    "coordinates": [21.9341, 86.7210],
+    "polygon": [
+      [21.9320, 86.7190], [21.9360, 86.7200], [21.9350, 86.7230], [21.9315, 86.7220], [21.9320, 86.7190]
+    ]
+  },
+  {
+    "id": "FRA-OD-SUN-016",
+    "applicantName": "Kalyan Kisan & Community",
+    "applicantType": "Community (CFR)",
+    "category": "ST",
+    "state": "Odisha",
+    "district": "Sundargarh",
+    "block": "Hemgir",
+    "gramSabha": "Gopalpur",
+    "surveyNumber": "CFR-SUN-04",
+    "claimedAreaHa": 38.0,
+    "mappedAreaHa": 37.8,
+    "submissionDate": "2023-12-04",
+    "currentStage": "Title Granted",
+    "daysPending": 0,
+    "status": "Approved",
+    "anomalies": [],
+    "anomalyRisk": "NONE",
+    "anomalyDetails": "Community Forest Resource title granted for NTFP gathering and watershed conservation.",
+    "documents": {
+      "gramSabhaResolution": "Verified",
+      "casteCertificate": "Verified",
+      "jointVerificationReport": "Verified",
+      "evidence75Years": "N/A (ST)"
+    },
+    "coordinates": [21.9542, 83.7812],
+    "polygon": [
+      [21.9500, 83.7750], [21.9600, 83.7770], [21.9580, 83.7880], [21.9480, 83.7850], [21.9500, 83.7750]
+    ]
+  },
+  {
+    "id": "FRA-OD-KOR-017",
+    "applicantName": "Purna Chandra Jani",
+    "applicantType": "Individual (IFR)",
+    "category": "ST",
+    "state": "Odisha",
+    "district": "Koraput",
+    "block": "Semiliguda",
+    "gramSabha": "Doliamba",
+    "surveyNumber": "SY-55/A",
+    "claimedAreaHa": 2.5,
+    "mappedAreaHa": 2.45,
+    "submissionDate": "2024-03-12",
+    "currentStage": "Title Granted",
+    "daysPending": 0,
+    "status": "Approved",
+    "anomalies": [],
+    "anomalyRisk": "NONE",
+    "anomalyDetails": "Individual forest title issued without discrepancies.",
+    "documents": {
+      "gramSabhaResolution": "Verified",
+      "casteCertificate": "Verified",
+      "jointVerificationReport": "Verified",
+      "evidence75Years": "N/A (ST)"
+    },
+    "coordinates": [18.7123, 82.9845],
+    "polygon": [
+      [18.7100, 82.9820], [18.7150, 82.9830], [18.7140, 82.9870], [18.7090, 82.9860], [18.7100, 82.9820]
+    ]
+  },
+  {
+    "id": "FRA-OD-KAN-018",
+    "applicantName": "Suresh Pradhan",
+    "applicantType": "Individual (IFR)",
+    "category": "OTFD",
+    "state": "Odisha",
+    "district": "Kandhamal",
+    "block": "Baliguda",
+    "gramSabha": "Barkhama",
+    "surveyNumber": "SY-18/3",
+    "claimedAreaHa": 1.9,
+    "mappedAreaHa": 1.9,
+    "submissionDate": "2024-05-02",
+    "currentStage": "SDLC",
+    "daysPending": 125,
+    "status": "Pending",
+    "anomalies": [],
+    "anomalyRisk": "NONE",
+    "anomalyDetails": "Awaiting 75-year elder testimony attestation at SDLC level.",
+    "documents": {
+      "gramSabhaResolution": "Verified",
+      "casteCertificate": "Verified",
+      "jointVerificationReport": "Verified",
+      "evidence75Years": "Pending"
+    },
+    "coordinates": [20.1845, 83.8912],
+    "polygon": [
+      [20.1830, 83.8890], [20.1870, 83.8900], [20.1860, 83.8935], [20.1820, 83.8925], [20.1830, 83.8890]
+    ]
+  },
+  {
+    "id": "FRA-CT-BAS-019",
+    "applicantName": "Ghasia Kashyap",
+    "applicantType": "Individual (IFR)",
+    "category": "ST",
+    "state": "Chhattisgarh",
+    "district": "Bastar",
+    "block": "Tokapal",
+    "gramSabha": "Parpa",
+    "surveyNumber": "SY-71/B",
+    "claimedAreaHa": 2.1,
+    "mappedAreaHa": 2.1,
+    "submissionDate": "2024-01-30",
+    "currentStage": "DLC",
+    "daysPending": 218,
+    "status": "Flagged Anomaly",
+    "anomalies": ["SLA_BREACH"],
+    "anomalyRisk": "LOW",
+    "anomalyDetails": "218 days pending at DLC stage. Administrative file awaiting collector signature.",
+    "documents": {
+      "gramSabhaResolution": "Verified",
+      "casteCertificate": "Verified",
+      "jointVerificationReport": "Verified",
+      "evidence75Years": "N/A (ST)"
+    },
+    "coordinates": [19.0123, 81.8234],
+    "polygon": [
+      [19.0100, 81.8210], [19.0140, 81.8220], [19.0130, 81.8255], [19.0090, 81.8245], [19.0100, 81.8210]
+    ]
+  },
+  {
+    "id": "FRA-CT-BAS-020",
+    "applicantName": "Rameshwar Sahu",
+    "applicantType": "Individual (IFR)",
+    "category": "OTFD",
+    "state": "Chhattisgarh",
+    "district": "Bastar",
+    "block": "Jagdalpur",
+    "gramSabha": "Dharampura",
+    "surveyNumber": "SY-04/1",
+    "claimedAreaHa": 4.5,
+    "mappedAreaHa": 4.5,
+    "submissionDate": "2023-07-15",
+    "currentStage": "DLC",
+    "daysPending": 0,
+    "status": "Rejected",
+    "anomalies": [],
+    "anomalyRisk": "NONE",
+    "anomalyDetails": "Rejected due to lack of mandatory 3 generations (75 years) forest occupation proof under FRA Section 2(o).",
+    "documents": {
+      "gramSabhaResolution": "Verified",
+      "casteCertificate": "Verified",
+      "jointVerificationReport": "Discrepancy",
+      "evidence75Years": "Missing"
+    },
+    "coordinates": [19.0812, 82.0123],
+    "polygon": [
+      [19.0790, 82.0100], [19.0840, 82.0110], [19.0830, 82.0150], [19.0780, 82.0140], [19.0790, 82.0100]
+    ]
+  },
+  {
+    "id": "FRA-CT-KAN-021",
+    "applicantName": "Dhaniram Mandavi",
+    "applicantType": "Individual (IFR)",
+    "category": "ST",
+    "state": "Chhattisgarh",
+    "district": "Kanker",
+    "block": "Narharpur",
+    "gramSabha": "Dhaneli",
+    "surveyNumber": "SY-33/A",
+    "claimedAreaHa": 2.4,
+    "mappedAreaHa": 3.7,
+    "submissionDate": "2024-02-14",
+    "currentStage": "SDLC",
+    "daysPending": 203,
+    "status": "Flagged Anomaly",
+    "anomalies": ["AREA_DISCREPANCY", "SLA_BREACH"],
+    "anomalyRisk": "HIGH",
+    "anomalyDetails": "Physical GPS polygon is 54% larger than paper claim. Joint re-survey recommended.",
+    "documents": {
+      "gramSabhaResolution": "Verified",
+      "casteCertificate": "Verified",
+      "jointVerificationReport": "Discrepancy",
+      "evidence75Years": "N/A (ST)"
+    },
+    "coordinates": [20.3512, 81.5423],
+    "polygon": [
+      [20.3490, 81.5400], [20.3540, 81.5410], [20.3530, 81.5450], [20.3480, 81.5440], [20.3490, 81.5400]
+    ]
+  },
+  {
+    "id": "FRA-CT-DAN-022",
+    "applicantName": "Hidma Kawasi & Gram Sabha",
+    "applicantType": "Community (CFR)",
+    "category": "ST",
+    "state": "Chhattisgarh",
+    "district": "Dantewada",
+    "block": "Kuakonda",
+    "gramSabha": "Sameli",
+    "surveyNumber": "CFR-DAN-02",
+    "claimedAreaHa": 85.0,
+    "mappedAreaHa": 84.5,
+    "submissionDate": "2023-11-25",
+    "currentStage": "Title Granted",
+    "daysPending": 0,
+    "status": "Approved",
+    "anomalies": [],
+    "anomalyRisk": "NONE",
+    "anomalyDetails": "Community Forest Rights Title granted for gathering Mahua, Tendu, and medicinal flora.",
+    "documents": {
+      "gramSabhaResolution": "Verified",
+      "casteCertificate": "Verified",
+      "jointVerificationReport": "Verified",
+      "evidence75Years": "N/A (ST)"
+    },
+    "coordinates": [18.7845, 81.2512],
+    "polygon": [
+      [18.7800, 81.2450], [18.7900, 81.2470], [18.7880, 81.2580], [18.7780, 81.2550], [18.7800, 81.2450]
+    ]
+  },
+  {
+    "id": "FRA-MP-MAN-023",
+    "applicantName": "Bhagwandas Uikey",
+    "applicantType": "Individual (IFR)",
+    "category": "ST",
+    "state": "Madhya Pradesh",
+    "district": "Mandla",
+    "block": "Nainpur",
+    "gramSabha": "Chiraidongri",
+    "surveyNumber": "SY-190/B",
+    "claimedAreaHa": 1.7,
+    "mappedAreaHa": 1.7,
+    "submissionDate": "2024-03-05",
+    "currentStage": "Title Granted",
+    "daysPending": 0,
+    "status": "Approved",
+    "anomalies": [],
+    "anomalyRisk": "NONE",
+    "anomalyDetails": "Title verified with no discrepancies.",
+    "documents": {
+      "gramSabhaResolution": "Verified",
+      "casteCertificate": "Verified",
+      "jointVerificationReport": "Verified",
+      "evidence75Years": "N/A (ST)"
+    },
+    "coordinates": [22.4210, 80.1234],
+    "polygon": [
+      [22.4190, 80.1210], [22.4230, 80.1220], [22.4220, 80.1255], [22.4180, 80.1245], [22.4190, 80.1210]
+    ]
+  },
+  {
+    "id": "FRA-MP-DIN-024",
+    "applicantName": "Sukhiram Baiga (PVTG)",
+    "applicantType": "Individual (IFR)",
+    "category": "PVTG",
+    "state": "Madhya Pradesh",
+    "district": "Dindori",
+    "block": "Bajag",
+    "gramSabha": "Dhaba",
+    "surveyNumber": "SY-401/1",
+    "claimedAreaHa": 2.5,
+    "mappedAreaHa": 2.5,
+    "submissionDate": "2024-04-10",
+    "currentStage": "Title Granted",
+    "daysPending": 0,
+    "status": "Approved",
+    "anomalies": [],
+    "anomalyRisk": "NONE",
+    "anomalyDetails": "Habitat Rights for PVTG Baiga community granted under special FRA provisions.",
+    "documents": {
+      "gramSabhaResolution": "Verified",
+      "casteCertificate": "Verified",
+      "jointVerificationReport": "Verified",
+      "evidence75Years": "N/A (PVTG)"
+    },
+    "coordinates": [22.7512, 81.3210],
+    "polygon": [
+      [22.7490, 81.3190], [22.7530, 81.3200], [22.7520, 81.3235], [22.7480, 81.3225], [22.7490, 81.3190]
+    ]
+  },
+  {
+    "id": "FRA-JH-RAN-025",
+    "applicantName": "Birsa Munda & Village Committee",
+    "applicantType": "Community Resource (CR)",
+    "category": "ST",
+    "state": "Jharkhand",
+    "district": "Ranchi",
+    "block": "Khunti / Torpa",
+    "gramSabha": "Ulihatu",
+    "surveyNumber": "CR-JH-01",
+    "claimedAreaHa": 62.0,
+    "mappedAreaHa": 61.5,
+    "submissionDate": "2023-10-18",
+    "currentStage": "Title Granted",
+    "daysPending": 0,
+    "status": "Approved",
+    "anomalies": [],
+    "anomalyRisk": "NONE",
+    "anomalyDetails": "Sacred grove and ancestral Sarna Sthal community recognition approved.",
+    "documents": {
+      "gramSabhaResolution": "Verified",
+      "casteCertificate": "Verified",
+      "jointVerificationReport": "Verified",
+      "evidence75Years": "N/A (ST)"
+    },
+    "coordinates": [23.1845, 85.3214],
+    "polygon": [
+      [23.1800, 85.3150], [23.1900, 85.3170], [23.1880, 85.3280], [23.1780, 85.3250], [23.1800, 85.3150]
+    ]
+  },
+  {
+    "id": "FRA-JH-WSB-026",
+    "applicantName": "Sunil Hembrom",
+    "applicantType": "Individual (IFR)",
+    "category": "ST",
+    "state": "Jharkhand",
+    "district": "West Singhbhum",
+    "block": "Manoharpur",
+    "gramSabha": "Saranda",
+    "surveyNumber": "SY-51/A",
+    "claimedAreaHa": 2.6,
+    "mappedAreaHa": 3.9,
+    "submissionDate": "2023-09-02",
+    "currentStage": "DLC",
+    "daysPending": 368,
+    "status": "Flagged Anomaly",
+    "anomalies": ["LAND_MISMATCH", "SLA_BREACH"],
+    "anomalyRisk": "HIGH",
+    "anomalyDetails": "Pending 368 days at DLC; Plot boundary overlaps into Saranda Dense Sal Forest Reserve corridor.",
+    "documents": {
+      "gramSabhaResolution": "Verified",
+      "casteCertificate": "Verified",
+      "jointVerificationReport": "Discrepancy",
+      "evidence75Years": "N/A (ST)"
+    },
+    "coordinates": [22.3845, 85.1912],
+    "polygon": [
+      [22.3820, 85.1890], [22.3870, 85.1900], [22.3860, 85.1940], [22.3810, 85.1930], [22.3820, 85.1890]
+    ]
+  },
+  {
+    "id": "FRA-OD-MAY-027",
+    "applicantName": "Singrai Marndi",
+    "applicantType": "Individual (IFR)",
+    "category": "ST",
+    "state": "Odisha",
+    "district": "Mayurbhanj",
+    "block": "Jashipur",
+    "gramSabha": "Matiagarh",
+    "surveyNumber": "SY-18/1",
+    "claimedAreaHa": 1.4,
+    "mappedAreaHa": 1.4,
+    "submissionDate": "2024-05-19",
+    "currentStage": "SDLC",
+    "daysPending": 108,
+    "status": "Pending",
+    "anomalies": [],
+    "anomalyRisk": "NONE",
+    "anomalyDetails": "Under standard SDLC verification queue.",
+    "documents": {
+      "gramSabhaResolution": "Verified",
+      "casteCertificate": "Verified",
+      "jointVerificationReport": "Verified",
+      "evidence75Years": "N/A (ST)"
+    },
+    "coordinates": [21.9845, 86.0812],
+    "polygon": [
+      [21.9830, 86.0790], [21.9870, 86.0800], [21.9860, 86.0835], [21.9820, 86.0825], [21.9830, 86.0790]
+    ]
+  },
+  {
+    "id": "FRA-CT-DAN-028",
+    "applicantName": "Kosa Madkam",
+    "applicantType": "Individual (IFR)",
+    "category": "ST",
+    "state": "Chhattisgarh",
+    "district": "Dantewada",
+    "block": "Katekalyan",
+    "gramSabha": "Bengpal",
+    "surveyNumber": "SY-70/3",
+    "claimedAreaHa": 2.0,
+    "mappedAreaHa": 1.95,
+    "submissionDate": "2024-03-22",
+    "currentStage": "Title Granted",
+    "daysPending": 0,
+    "status": "Approved",
+    "anomalies": [],
+    "anomalyRisk": "NONE",
+    "anomalyDetails": "Individual forest dwelling title issued under Section 3(1)(a).",
+    "documents": {
+      "gramSabhaResolution": "Verified",
+      "casteCertificate": "Verified",
+      "jointVerificationReport": "Verified",
+      "evidence75Years": "N/A (ST)"
+    },
+    "coordinates": [18.8412, 81.5123],
+    "polygon": [
+      [18.8390, 81.5100], [18.8430, 81.5110], [18.8420, 81.5145], [18.8380, 81.5135], [18.8390, 81.5100]
+    ]
+  },
+  {
+    "id": "FRA-MP-BAL-029",
+    "applicantName": "Gorelal Markam",
+    "applicantType": "Individual (IFR)",
+    "category": "ST",
+    "state": "Madhya Pradesh",
+    "district": "Mandla",
+    "block": "Ghughri",
+    "gramSabha": "Sijhora",
+    "surveyNumber": "SY-88/G",
+    "claimedAreaHa": 2.8,
+    "mappedAreaHa": 2.8,
+    "submissionDate": "2024-01-11",
+    "currentStage": "Title Granted",
+    "daysPending": 0,
+    "status": "Approved",
+    "anomalies": [],
+    "anomalyRisk": "NONE",
+    "anomalyDetails": "Clean record. Verified by Joint Forest Committee.",
+    "documents": {
+      "gramSabhaResolution": "Verified",
+      "casteCertificate": "Verified",
+      "jointVerificationReport": "Verified",
+      "evidence75Years": "N/A (ST)"
+    },
+    "coordinates": [22.7123, 80.7541],
+    "polygon": [
+      [22.7100, 80.7520], [22.7140, 80.7530], [22.7130, 80.7565], [22.7090, 80.7555], [22.7100, 80.7520]
+    ]
+  },
+  {
+    "id": "FRA-MH-GAD-030",
+    "applicantName": "Bhikari Madavi",
+    "applicantType": "Individual (IFR)",
+    "category": "ST",
+    "state": "Maharashtra",
+    "district": "Gadchiroli",
+    "block": "Korchi",
+    "gramSabha": "Zendepar",
+    "surveyNumber": "SY-102/A",
+    "claimedAreaHa": 3.1,
+    "mappedAreaHa": 3.1,
+    "submissionDate": "2024-04-01",
+    "currentStage": "Title Granted",
+    "daysPending": 0,
+    "status": "Approved",
+    "anomalies": [],
+    "anomalyRisk": "NONE",
+    "anomalyDetails": "Title deed finalized and recorded into electronic revenue database.",
+    "documents": {
+      "gramSabhaResolution": "Verified",
+      "casteCertificate": "Verified",
+      "jointVerificationReport": "Verified",
+      "evidence75Years": "N/A (ST)"
+    },
+    "coordinates": [20.6512, 80.4812],
+    "polygon": [
+      [20.6490, 80.4790], [20.6530, 80.4800], [20.6520, 80.4835], [20.6480, 80.4825], [20.6490, 80.4790]
+    ]
+  }
+]

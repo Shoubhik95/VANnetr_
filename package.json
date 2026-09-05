@@ -1,0 +1,17 @@
+{
+  "name": "vannetr",
+  "version": "1.0.0",
+  "description": "VanNetr - AI-powered Decision Support System for Forest Rights Act (FRA) Monitoring",
+  "main": "server/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "npm run client",
+    "server": "npm --prefix server start",
+    "client": "npm --prefix client run dev",
+    "build": "npm --prefix client run build",
+    "start": "node server/index.js"
+  },
+  "keywords": ["fra", "webgis", "ai", "forest-rights", "decision-support"],
+  "author": "VanNetr Team",
+  "license": "MIT"
+}
