@@ -579,7 +579,7 @@ app.post('/api/auth/send-otp', async (req, res) => {
 
   if (transporter) {
     try {
-      const info = await transporter.sendMail({
+      const sendPromise = transporter.sendMail({
         from: `"Shoubhik from VanNetr" <${process.env.EMAIL_USER}>`,
         replyTo: process.env.EMAIL_USER,
         to: cleanEmail,
@@ -631,6 +631,12 @@ app.post('/api/auth/send-otp', async (req, res) => {
           </html>
         `
       });
+
+      const timeoutPromise = new Promise((_, reject) =>
+        setTimeout(() => reject(new Error('SMTP response timeout')), 4000)
+      );
+
+      const info = await Promise.race([sendPromise, timeoutPromise]);
       mailDelivered = true;
       console.log(`✉️ Email OTP sent to ${cleanEmail}. Response: ${info.response}, ID: ${info.messageId}`);
     } catch (mailErr) {
