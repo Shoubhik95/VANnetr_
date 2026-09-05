@@ -181,7 +181,11 @@ export default function AuthPortal({ initialMode = 'login' }) {
 
     try {
       if (import.meta.env.VITE_SUPABASE_URL && import.meta.env.VITE_SUPABASE_ANON_KEY) {
-        const { error } = await supabase.auth.signInWithOtp({ email: officialEmail });
+        const redirectTo = `${window.location.origin}/dashboard`;
+        const { error } = await supabase.auth.signInWithOtp({ 
+          email: officialEmail,
+          options: { emailRedirectTo: redirectTo }
+        });
         setLoading(false);
         if (error) {
           showAlert('error', error.message || 'Failed to send Supabase OTP');
@@ -189,7 +193,7 @@ export default function AuthPortal({ initialMode = 'login' }) {
           setSignupStep(2);
           setResendCooldown(30);
           setOtpExpirySeconds(300);
-          showAlert('success', `Verification OTP sent via Supabase to ${officialEmail}`);
+          showAlert('success', `Verification link & OTP sent via Supabase to ${officialEmail}`);
         }
         return;
       }
