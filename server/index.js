@@ -579,10 +579,10 @@ app.post('/api/auth/send-otp', async (req, res) => {
   if (transporter) {
     // Send email asynchronously in background so client gets instant response and SMTP gets full time to deliver
     transporter.sendMail({
-      from: `"Shoubhik from VanNetr" <${process.env.EMAIL_USER}>`,
+      from: `"VanNetr FRA Portal" <${process.env.EMAIL_USER}>`,
       replyTo: process.env.EMAIL_USER,
       to: cleanEmail,
-      subject: `${otp} is your VanNetr code`,
+      subject: `[VanNetr] ${otp} is your Official Officer Verification Code`,
       text: `Hi,\n\nYour VanNetr verification code is: ${otp}\n\nThis code will expire in 5 minutes.\n\nBest regards,\nVanNetr Security Team`,
       html: `
         <!DOCTYPE html>
