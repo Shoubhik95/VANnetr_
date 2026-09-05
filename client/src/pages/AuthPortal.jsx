@@ -505,18 +505,10 @@ export default function AuthPortal({ initialMode = 'login' }) {
                 {/* Project Headings */}
                 <div className="text-center mt-2.5">
                   <h2 className="font-outfit font-bold text-[26px] sm:text-[30px] text-gray-950 tracking-tight leading-tight">
-                    {mode === 'login' 
-                      ? 'Welcome back, Officer' 
-                      : (signupStep === 1 
-                          ? 'Create Officer Account' 
-                          : 'Verify Official Email')}
+                    Welcome back, Officer
                   </h2>
                   <p className="text-[#64748b] text-[12.5px] sm:text-[13px] mt-0.5 font-normal">
-                    {mode === 'login' 
-                      ? 'Sign in with your official credentials' 
-                      : (signupStep === 1 
-                          ? 'Step 1 of 2: Enter your officer verification details' 
-                          : 'Step 2 of 2: Enter the 6-digit OTP code sent to email')}
+                    Sign in with your official credentials
                   </p>
                 </div>
 
@@ -536,254 +528,84 @@ export default function AuthPortal({ initialMode = 'login' }) {
                   </div>
                 )}
 
-                {/* ========================================================= */}
-                {/* MODE 1: LOGIN FORM                                       */}
-                {/* ========================================================= */}
-                {/* ========================================================= */}
-                {/* MODE 1: LOGIN FORM                                       */}
-                {/* ========================================================= */}
-                {mode === 'login' && (
-                  <div className="mt-4 space-y-4">
-                    {/* Top Prominent Google Login Button */}
-                    <button
-                      type="button"
-                      onClick={handleGoogleSignIn}
-                      disabled={loading}
-                      id="auth-google-btn-top"
-                      className="w-full bg-white border-2 border-gray-200 hover:border-black text-gray-900 rounded-full py-3 px-6 shadow-md hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-3 text-[14.5px] font-bold cursor-pointer group hover:scale-[1.008] active:scale-[0.99]"
-                    >
-                      <span>Login with Google</span>
-                      <svg className="w-4.5 h-4.5 shrink-0" viewBox="0 0 24 24">
-                        <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z" />
-                        <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.34 24 12 24z" />
-                        <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.99 0 12s.45 3.82 1.25 5.42l4.03-3.15z" />
-                        <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.34 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z" />
-                      </svg>
-                    </button>
+                {/* LOGIN FORM CONTENTS */}
+                <div className="mt-4 space-y-4">
+                  {/* Top Prominent Google Login Button */}
+                  <button
+                    type="button"
+                    onClick={handleGoogleSignIn}
+                    disabled={loading}
+                    id="auth-google-btn-top"
+                    className="w-full bg-white border-2 border-gray-200 hover:border-black text-gray-900 rounded-full py-3 px-6 shadow-md hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-3 text-[14.5px] font-bold cursor-pointer group hover:scale-[1.008] active:scale-[0.99]"
+                  >
+                    <span>Login with Google</span>
+                    <svg className="w-4.5 h-4.5 shrink-0" viewBox="0 0 24 24">
+                      <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z" />
+                      <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.34 24 12 24z" />
+                      <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.99 0 12s.45 3.82 1.25 5.42l4.03-3.15z" />
+                      <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.34 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z" />
+                    </svg>
+                  </button>
 
-                    {/* Centered Divider */}
-                    <div className="w-full flex items-center justify-center gap-3 text-gray-400 text-[12px] pt-1">
-                      <div className="flex-1 h-[1px] bg-gray-200" />
-                      <span className="font-semibold text-gray-400">or sign in with email</span>
-                      <div className="flex-1 h-[1px] bg-gray-200" />
+                  {/* Centered Divider */}
+                  <div className="w-full flex items-center justify-center gap-3 text-gray-400 text-[12px] pt-1">
+                    <div className="flex-1 h-[1px] bg-gray-200" />
+                    <span className="font-semibold text-gray-400">or sign in with email</span>
+                    <div className="flex-1 h-[1px] bg-gray-200" />
+                  </div>
+
+                  <form onSubmit={handleLoginSubmit} className="space-y-3.5">
+                    <div className="relative pt-1">
+                      <input 
+                        type="email" 
+                        id="login-email-input"
+                        value={loginEmail}
+                        onChange={(e) => setLoginEmail(e.target.value)}
+                        placeholder="Official Email Address" 
+                        required
+                        autoComplete="email"
+                        className="w-full bg-transparent border-0 border-b border-gray-300 focus:border-black text-gray-900 placeholder-[#94a3b8] text-[14.5px] py-2 px-0 outline-none transition-colors focus:ring-0"
+                      />
                     </div>
 
-                    <form onSubmit={handleLoginSubmit} className="space-y-3.5">
-                      <div className="relative pt-1">
-                        <input 
-                          type="email" 
-                          id="login-email-input"
-                          value={loginEmail}
-                          onChange={(e) => setLoginEmail(e.target.value)}
-                          placeholder="Official Email Address" 
-                          required
-                          autoComplete="email"
-                          className="w-full bg-transparent border-0 border-b border-gray-300 focus:border-black text-gray-900 placeholder-[#94a3b8] text-[14.5px] py-2 px-0 outline-none transition-colors focus:ring-0"
-                        />
-                      </div>
-
-                      {/* Primary Sign In Action Button */}
-                      <div className="pt-2">
-                        <button
-                          type="submit"
-                          disabled={loading}
-                          id="auth-submit-btn"
-                          className="w-full h-[54px] rounded-full relative overflow-hidden flex items-center justify-between pl-8 pr-1.5 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.008] active:scale-[0.99] group cursor-pointer"
-                          style={{
-                            backgroundImage: `url(${fieldVertical})`,
-                            backgroundSize: 'cover',
-                            backgroundPosition: 'center'
-                          }}
-                        >
-                          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/45 to-black/30 group-hover:from-black/60 group-hover:to-black/20 transition-colors" />
-                          
-                          <span className="relative z-10 font-outfit font-extrabold text-[18px] text-white tracking-wider drop-shadow-md">
-                            {loading ? 'Processing...' : 'Sign In'}
-                          </span>
-                          <div className="relative z-10 w-10 h-10 rounded-full bg-[#ccff00] text-black flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform duration-300 shrink-0">
-                            <ArrowUpRight className="w-5 h-5 stroke-[3]" />
-                          </div>
-                        </button>
-                      </div>
-                    </form>
-                  </div>
-                )}
-
-                {/* ========================================================= */}
-                {/* MODE 2: SIGN UP FLOW (3 STEPS)                            */}
-                {/* ========================================================= */}
-                {mode === 'signup' && (
-                  <div className="mt-3">
-                    
-                    {/* STEP 1: OFFICER DETAILS & EMAIL */}
-                    {signupStep === 1 && (
-                      <form onSubmit={handleSendOTP} className="space-y-3">
-                        <div>
-                          <label className="block text-xs font-semibold text-gray-700 mb-1">
-                            Full Officer Name
-                          </label>
-                          <input 
-                            type="text"
-                            required
-                            placeholder="e.g. Officer Shoubhik Das"
-                            value={fullName}
-                            onChange={(e) => setFullName(e.target.value)}
-                            disabled={loading}
-                            className="w-full px-3.5 py-2 rounded-xl border border-gray-300 focus:border-black text-sm text-gray-900 outline-none bg-gray-50/50"
-                          />
+                    {/* Primary Sign In Action Button */}
+                    <div className="pt-2">
+                      <button
+                        type="submit"
+                        disabled={loading}
+                        id="auth-submit-btn"
+                        className="w-full h-[54px] rounded-full relative overflow-hidden flex items-center justify-between pl-8 pr-1.5 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.008] active:scale-[0.99] group cursor-pointer"
+                        style={{
+                          backgroundImage: `url(${fieldVertical})`,
+                          backgroundSize: 'cover',
+                          backgroundPosition: 'center'
+                        }}
+                      >
+                        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/45 to-black/30 group-hover:from-black/60 group-hover:to-black/20 transition-colors" />
+                        
+                        <span className="relative z-10 font-outfit font-extrabold text-[18px] text-white tracking-wider drop-shadow-md">
+                          {loading ? 'Processing...' : 'Sign In'}
+                        </span>
+                        <div className="relative z-10 w-10 h-10 rounded-full bg-[#ccff00] text-black flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform duration-300 shrink-0">
+                          <ArrowUpRight className="w-5 h-5 stroke-[3]" />
                         </div>
+                      </button>
+                    </div>
+                  </form>
+                </div>
 
-                        <div>
-                          <label className="block text-xs font-semibold text-gray-700 mb-1">
-                            Official Officer ID
-                          </label>
-                          <input 
-                            type="text"
-                            required
-                            placeholder="e.g. FRA-OFF-904812"
-                            value={officerId}
-                            onChange={(e) => setOfficerId(e.target.value)}
-                            disabled={loading}
-                            className="w-full px-3.5 py-2 rounded-xl border border-gray-300 focus:border-black text-sm text-gray-900 outline-none bg-gray-50/50 font-mono"
-                          />
-                        </div>
-
-                        <div>
-                          <label className="block text-xs font-semibold text-gray-700 mb-1">
-                            Official Email Address
-                          </label>
-                          <input 
-                            type="email"
-                            required
-                            placeholder="officer@example.com"
-                            value={officialEmail}
-                            onChange={(e) => setOfficialEmail(e.target.value)}
-                            disabled={loading}
-                            className="w-full px-3.5 py-2 rounded-xl border border-gray-300 focus:border-black text-sm text-gray-900 outline-none bg-gray-50/50"
-                          />
-                        </div>
-
-                        <button
-                          type="submit"
-                          disabled={loading}
-                          className="w-full h-[52px] rounded-full relative overflow-hidden flex items-center justify-between pl-8 pr-1.5 shadow-xl hover:shadow-2xl transition-all group cursor-pointer mt-3"
-                          style={{
-                            backgroundImage: `url(${fieldVertical})`,
-                            backgroundSize: 'cover',
-                            backgroundPosition: 'center'
-                          }}
-                        >
-                          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/45 to-black/30 group-hover:from-black/60 group-hover:to-black/20 transition-colors" />
-                          <span className="relative z-10 font-outfit font-extrabold text-[17px] text-white tracking-wider drop-shadow-md">
-                            {loading ? 'Sending OTP...' : 'Send Verification OTP'}
-                          </span>
-                          <div className="relative z-10 w-9 h-9 rounded-full bg-[#ccff00] text-black flex items-center justify-center shadow-lg">
-                            {loading ? <RefreshCw className="w-4.5 h-4.5 animate-spin" /> : <ArrowRight className="w-4.5 h-4.5 stroke-[2.5]" />}
-                          </div>
-                        </button>
-                      </form>
-                    )}
-
-                    {/* STEP 2: OTP VERIFICATION */}
-                    {signupStep === 2 && (
-                      <form onSubmit={handleVerifyOTP} className="space-y-3">
-                        <div className="bg-emerald-50 p-2.5 rounded-xl border border-emerald-200 text-xs text-gray-800">
-                          <div className="text-emerald-700 text-[11px]">OTP sent to official email:</div>
-                          <div className="font-mono text-emerald-950 font-bold truncate text-sm">{officialEmail}</div>
-                        </div>
-
-                        <div>
-                          <label className="block text-xs font-semibold text-gray-700 mb-1">
-                            Enter 6-Digit Verification Code
-                          </label>
-                          <OTPInput
-                            value={otp}
-                            onChange={setOtp}
-                            disabled={loading}
-                            error={alert?.type === 'error'}
-                          />
-                        </div>
-
-                        <div className="flex items-center justify-between text-xs pt-1">
-                          <button
-                            type="button"
-                            onClick={handleResendOTP}
-                            disabled={resendCooldown > 0 || loading}
-                            className={`font-semibold transition-colors cursor-pointer ${
-                              resendCooldown > 0 || loading 
-                                ? 'text-gray-400 cursor-not-allowed' 
-                                : 'text-emerald-800 hover:underline'
-                            }`}
-                          >
-                            {resendCooldown > 0 ? `Resend OTP in ${resendCooldown}s` : 'Resend OTP'}
-                          </button>
-
-                          <span className="text-gray-500 font-mono text-[11px]">
-                            Expires in: <strong className="text-amber-600 font-bold">{formatTimer(otpExpirySeconds)}</strong>
-                          </span>
-                        </div>
-
-                        <div className="flex items-center gap-2 pt-2">
-                          <button
-                            type="button"
-                            onClick={() => setSignupStep(1)}
-                            disabled={loading}
-                            className="py-2.5 px-3 rounded-xl bg-gray-100 text-gray-700 hover:bg-gray-200 text-xs font-bold transition-all cursor-pointer flex items-center gap-1 border border-gray-300"
-                          >
-                            <ChevronLeft className="w-4 h-4" />
-                            <span>Back</span>
-                          </button>
-
-                          <button
-                            type="submit"
-                            disabled={loading || otp.length < 6}
-                            className="flex-1 py-2.5 px-4 rounded-xl bg-black hover:bg-gray-800 text-white text-xs font-bold shadow-md transition-all cursor-pointer flex items-center justify-center gap-2 disabled:opacity-50"
-                          >
-                            {loading ? (
-                              <>
-                                <RefreshCw className="w-4 h-4 animate-spin text-white" />
-                                <span>Verifying OTP...</span>
-                              </>
-                            ) : (
-                              <>
-                                <span>Verify OTP</span>
-                                <CheckCircle2 className="w-4 h-4 text-[#ccff00]" />
-                              </>
-                            )}
-                          </button>
-                        </div>
-                      </form>
-                    )}
-
-
-                  </div>
-                )}
-
-                {/* Account Mode Switcher Link */}
+                {/* Bottom Footer Text matching Image 2 */}
                 <div className="text-center mt-3 text-[13px] text-[#475569] font-medium">
-                  {mode === 'signup' ? (
-                    <span>
-                      Already have an officer account?{' '}
-                      <button 
-                        type="button"
-                        onClick={() => toggleMode('login')}
-                        className="text-[#486314] font-bold hover:underline cursor-pointer ml-1"
-                      >
-                        Sign In
-                      </button>
-                    </span>
-                  ) : (
-                    <span>
-                      Don't have an officer account?{' '}
-                      <button 
-                        type="button"
-                        onClick={() => toggleMode('signup')}
-                        className="text-[#486314] font-bold hover:underline cursor-pointer ml-1"
-                      >
-                        Create Officer Account
-                      </button>
-                    </span>
-                  )}
+                  <span>
+                    Don't have an officer account?{' '}
+                    <button 
+                      type="button"
+                      onClick={() => showAlert('info', 'Officer account creation is managed by MoTA Administrator.')}
+                      className="text-[#486314] font-bold hover:underline cursor-pointer ml-1"
+                    >
+                      Create Officer Account
+                    </button>
+                  </span>
                 </div>
               </div>
 

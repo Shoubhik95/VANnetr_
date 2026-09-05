@@ -387,10 +387,10 @@ export default function App() {
     <AuthProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<AuthPortal initialMode="login" />} />
-          <Route path="/login" element={<AuthPortal initialMode="login" />} />
-          <Route path="/signup" element={<AuthPortal initialMode="signup" />} />
-          <Route path="/verify-otp" element={<AuthPortal initialMode="signup" />} />
+          <Route path="/" element={<Navigate to="/signup" replace />} />
+          <Route path="/login" element={<Navigate to="/signup" replace />} />
+          <Route path="/signup" element={<AuthPortal />} />
+          <Route path="/verify-otp" element={<Navigate to="/signup" replace />} />
           <Route 
             path="/dashboard" 
             element={
@@ -399,7 +399,7 @@ export default function App() {
               </ProtectedRoute>
             } 
           />
-          <Route path="*" element={<Navigate to="/login" replace />} />
+          <Route path="*" element={<Navigate to="/signup" replace />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>
