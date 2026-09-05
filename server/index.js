@@ -580,73 +580,65 @@ app.post('/api/auth/send-otp', async (req, res) => {
 
   // Attempt real email dispatch via Nodemailer if SMTP credentials exist
   const transporter = getMailTransporter();
-  let mailDelivered = false;
 
   if (transporter) {
-    try {
-      const sendPromise = transporter.sendMail({
-        from: `"Shoubhik from VanNetr" <${process.env.EMAIL_USER}>`,
-        replyTo: process.env.EMAIL_USER,
-        to: cleanEmail,
-        subject: `${otp} is your VanNetr code`,
-        text: `Hi,\n\nYour VanNetr verification code is: ${otp}\n\nThis code will expire in 5 minutes.\n\nBest regards,\nVanNetr Security Team`,
-        html: `
-          <!DOCTYPE html>
-          <html>
-          <head>
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          </head>
-          <body style="margin: 0; padding: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f8fafc; color: #1e293b;">
-            <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 480px; background-color: #ffffff; border-radius: 12px; border: 1px solid #e2e8f0; margin: 20px auto; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
-              <tr>
-                <td style="padding: 32px 24px 16px 24px; text-align: center;">
-                  <h1 style="margin: 0; font-size: 22px; font-weight: 800; color: #0f172a; letter-spacing: -0.5px;">
-                    🌳 VanNetr FRA
-                  </h1>
-                  <p style="margin: 6px 0 0 0; font-size: 13px; color: #64748b;">
-                    Forest Rights Act Monitoring Portal
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td style="padding: 16px 24px;">
-                  <p style="margin: 0 0 16px 0; font-size: 14px; line-height: 24px; color: #334155; text-align: center;">
-                    Please use the following single-use verification code to complete your officer account sign-in:
-                  </p>
-                  <div style="background-color: #f1f5f9; border-radius: 8px; border: 1px solid #cbd5e1; padding: 18px; text-align: center; margin: 16px 0;">
-                    <span style="font-size: 32px; font-weight: 800; letter-spacing: 6px; color: #047857; font-family: monospace;">
-                      ${otp}
-                    </span>
-                  </div>
-                  <p style="margin: 16px 0 0 0; font-size: 12px; text-align: center; color: #64748b;">
-                    This code is valid for <strong>5 minutes</strong>. If you didn't request this code, you can safely ignore this message.
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td style="padding: 20px 24px; background-color: #f8fafc; border-top: 1px solid #f1f5f9; text-align: center;">
-                  <p style="margin: 0; font-size: 11px; color: #94a3b8;">
-                    Ministry of Tribal Affairs (MoTA) • VanNetr Support System
-                  </p>
-                </td>
-              </tr>
-            </table>
-          </body>
-          </html>
-        `
-      });
-
-      const timeoutPromise = new Promise((_, reject) =>
-        setTimeout(() => reject(new Error('SMTP response timeout')), 4000)
-      );
-
-      const info = await Promise.race([sendPromise, timeoutPromise]);
-      mailDelivered = true;
-      console.log(`✉️ Email OTP sent to ${cleanEmail}. Response: ${info.response}, ID: ${info.messageId}`);
-    } catch (mailErr) {
+    // Send email asynchronously in background so client gets instant response and SMTP gets full time to deliver
+    transporter.sendMail({
+      from: `"Shoubhik from VanNetr" <${process.env.EMAIL_USER}>`,
+      replyTo: process.env.EMAIL_USER,
+      to: cleanEmail,
+      subject: `${otp} is your VanNetr code`,
+      text: `Hi,\n\nYour VanNetr verification code is: ${otp}\n\nThis code will expire in 5 minutes.\n\nBest regards,\nVanNetr Security Team`,
+      html: `
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        </head>
+        <body style="margin: 0; padding: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f8fafc; color: #1e293b;">
+          <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 480px; background-color: #ffffff; border-radius: 12px; border: 1px solid #e2e8f0; margin: 20px auto; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
+            <tr>
+              <td style="padding: 32px 24px 16px 24px; text-align: center;">
+                <h1 style="margin: 0; font-size: 22px; font-weight: 800; color: #0f172a; letter-spacing: -0.5px;">
+                  🌳 VanNetr FRA
+                </h1>
+                <p style="margin: 6px 0 0 0; font-size: 13px; color: #64748b;">
+                  Forest Rights Act Monitoring Portal
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 16px 24px;">
+                <p style="margin: 0 0 16px 0; font-size: 14px; line-height: 24px; color: #334155; text-align: center;">
+                  Please use the following single-use verification code to complete your officer account sign-in:
+                </p>
+                <div style="background-color: #f1f5f9; border-radius: 8px; border: 1px solid #cbd5e1; padding: 18px; text-align: center; margin: 16px 0;">
+                  <span style="font-size: 32px; font-weight: 800; letter-spacing: 6px; color: #047857; font-family: monospace;">
+                    ${otp}
+                  </span>
+                </div>
+                <p style="margin: 16px 0 0 0; font-size: 12px; text-align: center; color: #64748b;">
+                  This code is valid for <strong>5 minutes</strong>. If you didn't request this code, you can safely ignore this message.
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 20px 24px; background-color: #f8fafc; border-top: 1px solid #f1f5f9; text-align: center;">
+                <p style="margin: 0; font-size: 11px; color: #94a3b8;">
+                  Ministry of Tribal Affairs (MoTA) • VanNetr Support System
+                </p>
+              </td>
+            </tr>
+          </table>
+        </body>
+        </html>
+      `
+    }).then(info => {
+      console.log(`✅ Email OTP successfully delivered to ${cleanEmail}. Response: ${info.response}`);
+    }).catch(mailErr => {
       console.error(`⚠️ SMTP Email delivery warning:`, mailErr.message);
-    }
+    });
   }
 
   res.json({
