@@ -21,43 +21,55 @@ app.use(express.json());
 import { checkSanctuaryOverlap, PROTECTED_FOREST_ZONES, MOTA_STATE_BENCHMARKS, ALL_INDIA_STATE_DATA } from './spatial_engine.js';
 
 
-// Load Mock Claims & GeoJSON Boundaries Data
-const claimsDataPath = path.join(__dirname, 'data', 'fra_claims.json');
-const boundariesDataPath = path.join(__dirname, 'data', 'fra_boundaries.json');
-const realStatesGeoPath = path.join(__dirname, 'data', 'real_india_states.json');
+// Robust Data File Resolution for local dev and Vercel serverless deployment
+function findDataFile(filename) {
+  const possiblePaths = [
+    path.join(__dirname, 'data', filename),
+    path.join(__dirname, '..', 'server', 'data', filename),
+    path.join(__dirname, '..', 'data', filename),
+    path.join(process.cwd(), 'server', 'data', filename),
+    path.join(process.cwd(), 'data', filename)
+  ];
+  for (const p of possiblePaths) {
+    if (p && fs.existsSync(p)) {
+      return p;
+    }
+  }
+  return null;
+}
 
 let claimsData = [];
 let boundariesData = { states: { type: 'FeatureCollection', features: [] }, districts: { type: 'FeatureCollection', features: [] } };
 let realStatesGeo = null;
-
-const realDistrictsGeoPath = path.join(__dirname, 'data', 'real_india_districts.json');
 let realDistrictsGeo = null;
 
 function loadData() {
   try {
-    const rawClaims = fs.readFileSync(claimsDataPath, 'utf8');
-    claimsData = JSON.parse(rawClaims);
-    console.log(`Loaded ${claimsData.length} FRA claims from dataset.`);
-
-    if (fs.existsSync(realStatesGeoPath)) {
-      const rawRealStates = fs.readFileSync(realStatesGeoPath, 'utf8');
-      realStatesGeo = JSON.parse(rawRealStates);
-      console.log(`Loaded official High-Precision India States GeoJSON (${realStatesGeo.features.length} States/UTs).`);
+    const claimsPath = findDataFile('fra_claims.json');
+    if (claimsPath) {
+      claimsData = JSON.parse(fs.readFileSync(claimsPath, 'utf8'));
+      console.log(`Loaded ${claimsData.length} FRA claims from dataset (${claimsPath}).`);
     }
 
-    if (fs.existsSync(realDistrictsGeoPath)) {
-      const rawRealDistricts = fs.readFileSync(realDistrictsGeoPath, 'utf8');
-      realDistrictsGeo = JSON.parse(rawRealDistricts);
-      console.log(`Loaded official High-Precision India Districts GeoJSON (${realDistrictsGeo.features.length} Districts).`);
+    const statesPath = findDataFile('real_india_states.json');
+    if (statesPath) {
+      realStatesGeo = JSON.parse(fs.readFileSync(statesPath, 'utf8'));
+      console.log(`Loaded official High-Precision India States GeoJSON (${realStatesGeo.features.length} States/UTs) from ${statesPath}.`);
     }
 
-    if (fs.existsSync(boundariesDataPath)) {
-      const rawBoundaries = fs.readFileSync(boundariesDataPath, 'utf8');
-      boundariesData = JSON.parse(rawBoundaries);
-      console.log(`Loaded fallback district boundaries.`);
+    const districtsPath = findDataFile('real_india_districts.json');
+    if (districtsPath) {
+      realDistrictsGeo = JSON.parse(fs.readFileSync(districtsPath, 'utf8'));
+      console.log(`Loaded official High-Precision India Districts GeoJSON (${realDistrictsGeo.features.length} Districts) from ${districtsPath}.`);
+    }
+
+    const boundariesPath = findDataFile('fra_boundaries.json');
+    if (boundariesPath) {
+      boundariesData = JSON.parse(fs.readFileSync(boundariesPath, 'utf8'));
+      console.log(`Loaded fallback district boundaries from ${boundariesPath}.`);
     }
   } catch (err) {
-    console.error('Error loading data:', err);
+    console.error('Error loading data in server/index.js:', err);
   }
 }
 loadData();
