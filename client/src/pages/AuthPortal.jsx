@@ -36,11 +36,11 @@ export default function AuthPortal({ initialMode = 'login' }) {
   const location = useLocation();
   const { loginWithEmail, loginDirectly, signupWithFirebase, loginWithGoogle, isAuthenticated } = useAuth();
 
-  // Redirect to dashboard if already authenticated (or via Supabase Magic Link click)
+  // Handle magic link token redirect if coming directly from email link
   useEffect(() => {
-    if (isAuthenticated) {
-      const from = location.state?.from?.pathname || '/dashboard';
-      navigate(from, { replace: true });
+    const hasMagicLinkToken = window.location.hash.includes('access_token');
+    if (hasMagicLinkToken) {
+      navigate('/dashboard', { replace: true });
     }
 
     if (supabase) {
@@ -52,7 +52,7 @@ export default function AuthPortal({ initialMode = 'login' }) {
       });
       return () => subscription.unsubscribe();
     }
-  }, [isAuthenticated, navigate, location]);
+  }, [navigate, location]);
 
   // Form State - Login
   const [loginEmail, setLoginEmail] = useState('');
